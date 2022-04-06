@@ -9,6 +9,8 @@ import MenuItem from '@mui/material/MenuItem';
 import { observer } from "mobx-react";
 
 import ioc from "../../../lib/ioc";
+import {Stack} from "@mui/material";
+import CounterService from "../../../lib/base/CounterService";
 
 
 export const CounterGuests = () => {
@@ -24,6 +26,13 @@ export const CounterGuests = () => {
     setAnchorEl(null);
   };
 
+  const handleIncrease = (id: number) => {
+    ioc.counterService.increase(id)
+  }
+
+  const handleDecrease = (id: number) => {
+    ioc.counterService.decrease(id)
+  }
   return (
     <>
       <Button
@@ -49,9 +58,24 @@ export const CounterGuests = () => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Взрослых</MenuItem>
-        <MenuItem onClick={handleClose}>Детей</MenuItem>
-        <MenuItem onClick={handleClose}>Номра</MenuItem>
+        {ioc.counterService.counters.map(i => (
+          <Box>
+            <Stack direction={'row'}>
+              <MenuItem onClick={handleClose}>{i.title}</MenuItem>
+              <Stack direction={'row'}>
+                <Button onClick={() => handleDecrease(i.id)}>-</Button>
+                  {i.count}
+                <Button onClick={() => handleIncrease(i.id)}>+</Button>
+              </Stack>
+            </Stack>
+
+          </Box>
+
+        ))}
+
+        {/*<MenuItem onClick={handleClose}>Взрослых</MenuItem>*/}
+        {/*<MenuItem onClick={handleClose}>Детей</MenuItem>*/}
+        {/*<MenuItem onClick={handleClose}>Номра</MenuItem>*/}
       </Menu>
     </>
   );

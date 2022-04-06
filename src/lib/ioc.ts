@@ -8,7 +8,7 @@ import { inject } from 'react-declarative';
 
 export const ioc = {
     routerService: inject<RouterService>(TYPES.routerService),
-    counteService: inject<CounterService>(TYPES.counterService),
+    counterService: inject<CounterService>(TYPES.counterService),
 };
 
 (window as any).ioc = ioc;
