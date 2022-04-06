@@ -1,13 +1,29 @@
-import { Paper } from "@mui/material";
+import { Box, Paper } from "@mui/material";
 import CityInput from "./components/CityInput";
 import CounterGuests from "./components/CounterGuests";
+import FindButton from "./components/FindButton";
 
 export const SearchBar = () => {
     return (
-        <Paper elevation={8} style={{ borderRadius: '18px', backgroundColor: '#FCF5EF', display: 'flex' }}>
-            <CityInput/>
-            <CounterGuests/>
-        </Paper>    
+        <Box
+            sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                '& > :not(style)': {
+                m: 1,
+                },
+            }}
+         >
+            <Paper elevation={8} style={{ borderRadius: '18px', backgroundColor: '#FCF5EF', display: 'flex' }}>
+                <CityInput/>
+                <div>Заезд</div>
+                <div>Выезд</div>
+                <CounterGuests/>
+            </Paper> 
+
+            <FindButton/>
+        </Box>
+          
     )
 }
 

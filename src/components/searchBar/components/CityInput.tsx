@@ -23,7 +23,8 @@ export const CityInput = () => {
             disablePortal
             id="city-input"
             options={testOptions}
-            sx={{ width: 300}}
+            sx={{ width: 300,
+            }}
             renderInput={(params) => <TextField {...params} label="Город" />}
         />
     )
