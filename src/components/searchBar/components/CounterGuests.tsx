@@ -13,27 +13,35 @@ import ioc from "../../../lib/ioc";
 
 export const CounterGuests = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
   const open = Boolean(anchorEl);
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
 
   return (
-    <div>
+    <>
       <Button
-        id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
+        id="CounterGuests-button"
+        aria-controls={open ? 'CounterGuests-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
+        sx={{
+            color: '#6DB5CA',
+            display: 'flex',
+            alignItems: 'center',
+        }}
       >
-        Кол-во гостей
+        КОЛ-ВО ГОСТЕЙ
       </Button>
       <Menu
-        id="basic-menu"
+        id="CounterGuests-menu"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
@@ -41,12 +49,15 @@ export const CounterGuests = () => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}>Взрослых</MenuItem>
+        <MenuItem onClick={handleClose}>Детей</MenuItem>
+        <MenuItem onClick={handleClose}>Номра</MenuItem>
       </Menu>
-    </div>
+    </>
   );
 }
 
 export default observer(CounterGuests) as React.FC;
+
+//.css-1e6y48t-MuiButtonBase-root-MuiButton-root 
+//MuiButtonBase-root-MuiMenuItem-root
