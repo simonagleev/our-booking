@@ -12,12 +12,12 @@ export const FindButton = () => {
                 fontFamily: 'Montserrat',
                 fontStyle: 'normal',
                 fontWeight: '700',
-                fontSize: '20px',
+                fontSize: '1.25em',
                 lineHeight: '24px',
                 display: 'flex',
                 alignItems: 'center',
                 textAlign: 'center',
-                padding: '20px 60px'
+                padding: '1.25em 3.75em'
             }}
             variant="contained">
                 Найти
