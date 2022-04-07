@@ -1,6 +1,8 @@
 import { Box, Paper } from "@mui/material";
 import CityInput from "./components/CityInput";
 import CounterGuests from "./components/CounterGuests";
+import DatePickerIn from "./components/DatePickerIn";
+import DatePickerOut from "./components/DatePickerOut";
 import FindButton from "./components/FindButton";
 
 export const SearchBar = () => {
@@ -22,8 +24,8 @@ export const SearchBar = () => {
                 flex: 1,
                 }}>
                 <CityInput/>
-                <div style={{ flex: 1 }}>Заезд</div>
-                <div style={{ flex: 1 }}>Выезд</div>
+                <DatePickerIn/>
+                <DatePickerOut/>
                 <CounterGuests/>
             </Paper> 
 

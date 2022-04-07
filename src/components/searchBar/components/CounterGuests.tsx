@@ -18,17 +18,21 @@ const useStyles = makeStyles({
     borderRadius: '9px',
     border: 'none',
     boxShadow: '2px 1px 1px #bfa199',
+    maxWidth: '32px',
+    
     fontFamily: 'Montserrat',
     fontStyle: 'normal',
     fontWeight: '400',
     fontSize: '1.25rem',
     lineHeight: '1.5rem',
     display: 'flex',
+    justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
     paddingLeft: '0.8rem',
     paddingRight: '0.8rem',
     transition: '250ms',
+   
 
     '&:hover': {
       cursor: 'pointer',
@@ -42,7 +46,8 @@ const useStyles = makeStyles({
   },
   menuFrame: {
     background: '#FCF5EF',
-    flex: 1
+    flex: 1,
+    borderRadius: '18px',
   },
   counterMenuElement: {
     display: 'flex',
