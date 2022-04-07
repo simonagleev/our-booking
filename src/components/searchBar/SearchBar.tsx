@@ -8,19 +8,22 @@ export const SearchBar = () => {
         <Box
             sx={{
                 display: 'flex',
+                justifyContent: "space-between",
                 '& > :not(style)': {
                 m: 1,
                 },
+                
             }}
          >
             <Paper elevation={8} style={{ 
                 borderRadius: '18px', 
                 backgroundColor: '#FCF5EF', 
-                display: 'flex' 
+                display: 'flex',
+                flex: 1,
                 }}>
                 <CityInput/>
-                <div>Заезд</div>
-                <div>Выезд</div>
+                <div style={{ flex: 1 }}>Заезд</div>
+                <div style={{ flex: 1 }}>Выезд</div>
                 <CounterGuests/>
             </Paper> 
 

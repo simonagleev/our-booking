@@ -28,17 +28,21 @@ const useStyles = makeStyles({
     textAlign: 'center',
     paddingLeft: '0.8rem',
     paddingRight: '0.8rem',
+    transition: '250ms',
 
     '&:hover': {
       cursor: 'pointer',
-      background: '#ff6929'
+      background: '#ff6929',
+      transition: '250ms',
     },
     '&:active': {
       boxShadow: '0 3px 0 #bfa199',
+      transition: '250ms',
     } 
   },
   menuFrame: {
-    background: '#FCF5EF'
+    background: '#FCF5EF',
+    flex: 1
   },
   counterMenuElement: {
     display: 'flex',
