@@ -31,6 +31,7 @@ export const NavBar = () => {
     const classes = useStyles();
     return (
         <nav className={classes.container}>
+            
             <div className={classes.logo}>
                 LOGO
             </div>

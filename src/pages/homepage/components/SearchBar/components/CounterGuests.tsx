@@ -10,7 +10,7 @@ import { Typography } from '@mui/material';
 
 import { observer } from "mobx-react";
 
-import ioc from "../../../lib/ioc";
+import ioc from "../../../../../lib/ioc";
 
 const useStyles = makeStyles({
   counterButton: {

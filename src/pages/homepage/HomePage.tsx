@@ -1,7 +1,7 @@
 import { useTheme } from "@mui/material";
 import { AutoSizer } from "react-declarative";
 import ISize from "react-declarative/model/ISize";
-import NavBar from "../../components/navigation";
+import NavBar from "../../components/NavBar";
 import Desctop from "./views/Desktop";
 
 export const HomePage = () => {
@@ -36,7 +36,6 @@ export const HomePage = () => {
 
     return (
         <div>
-            <NavBar/>
              {/* Ниже тут Запрашиваем ширину от контейнера и высоту от общего окна для Автосайзера, чтоб он считал от этих данных */}
             <AutoSizer heightRequest={() => window.innerHeight - 80} target={document.body} selector='.MuiContainer-root'>
                 {renderContent}

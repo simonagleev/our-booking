@@ -3,10 +3,14 @@ import HomePage from './pages/homepage';
 
 
 export const routes: ISwitchItem[] = [
-    {
-      path: '/',
-      element: HomePage,
-    },
-  ];
+  {
+    path: '/',
+    redirect: '/home-page'
+  },
+  {
+    path: '/home-page',
+    element: HomePage,
+  },
+];
   
   export default routes;

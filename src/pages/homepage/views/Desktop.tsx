@@ -1,8 +1,8 @@
-import SearchBar from "../../../components/searchBar";
+import SearchBar from "../components/SearchBar";
 
-export const Desctop = () => {
+export const Desktop = () => {
 
 return <SearchBar/>
 } 
 
-export default Desctop;
+export default Desktop;

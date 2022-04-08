@@ -1,8 +1,11 @@
-import { Container } from '@mui/material';
-import './App.css';
-import ioc from './lib/ioc';
-import Homepage from './pages/homepage';
 
+import { Switch } from 'react-declarative';
+
+import Scaffold from './components/Scaffold';
+
+import routes from './routes';
+
+import ioc from './lib/ioc';
 
 
 const App = () => {
@@ -15,9 +18,11 @@ const App = () => {
 
 
   return (
-    <Container maxWidth="lg">
-      <Homepage/>
-    </Container>
+    <Scaffold>
+      <Switch
+        items={routes}
+      />
+    </Scaffold>
   ) 
 }
 
