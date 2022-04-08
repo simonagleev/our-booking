@@ -1,7 +1,8 @@
 export const TYPES = {
-    routerService: Symbol.for('routerService'),
-    counterService: Symbol.for('counterService'),
     alertService: Symbol.for('alertService'),
+    counterService: Symbol.for('counterService'),
+    modalService: Symbol.for('modalService'),
+    routerService: Symbol.for('routerService'),
 };
 
 export default TYPES;

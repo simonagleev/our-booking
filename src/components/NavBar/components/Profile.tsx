@@ -1,6 +1,7 @@
 import { makeStyles } from '@mui/styles';
 import PersonIcon from '@mui/icons-material/Person';
 import ioc from '../../../lib/ioc';
+import RegisterModal from '../../RegisterModal';
 
 const useStyles = makeStyles({
     root: {
@@ -18,18 +19,20 @@ const useStyles = makeStyles({
         textAlign: 'center',
     },
 });
-    const handler = () => {
-        ioc.routerService.push('/sign-up-form')
-    }
+
+const open = () => {
+    ioc.modalService.registerModalOpen()
+}
 
 export const Profile = () => {
     const classes = useStyles()
     return (
-        <div className={classes.root}>
+        <div className={classes.root} onClick={open}>
             <div>
                 <PersonIcon style={{ color: '#FCF5EF' }}/>
+                <RegisterModal/>
             </div>
-            <div className={classes.text} onClick={handler}>
+            <div className={classes.text} >
                 Профиль
             </div>
         </div>

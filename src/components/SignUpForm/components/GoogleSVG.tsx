@@ -1,6 +1,6 @@
 import * as React from "react"
 
-export const SvgComponent = (props: any) => (
+export const GoogleSVG = (props: any) => (
   <svg
     width={15}
     height={15}
@@ -29,4 +29,4 @@ export const SvgComponent = (props: any) => (
   </svg>
 )
 
-export default SvgComponent
+export default GoogleSVG;
