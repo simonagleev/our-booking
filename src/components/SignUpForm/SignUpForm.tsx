@@ -168,7 +168,7 @@ export const OneProfilePage = () => {
   
   
   return (
-    <Paper style={{borderRadius: '80px', margin: '5% auto 0', maxWidth: '80%'}}>
+    <Paper style={{borderRadius: '80px', margin: '5% auto 0', width: '80%', maxWidth: '900px'}}>
       <div style={{padding: '6.25em 8.5em', background: 'fff'}}>
         <One
           fields={fields}

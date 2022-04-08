@@ -35,8 +35,22 @@ export const DatePickerIn = () => {
           inputFormat="MM/dd/yyyy"
           value={value}
           onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
-          
+          renderInput={(params) => (<TextField
+              {...params}
+              sx={{
+                outline: 'none',
+                '& input': {
+                  background: 'red',
+                  border: 'none',
+                  outline: 'none'
+                },
+                '& fieldset': {
+                  border: 'none',
+                  color: 'blue'
+                },
+              }}
+            />
+          )}
         />
     </LocalizationProvider>
   );
