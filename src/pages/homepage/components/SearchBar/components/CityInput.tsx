@@ -33,12 +33,12 @@ export const CityInput = () => {
             options={testOptions}
             sx={{ width: 300,
                 '& .css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root': {
-                    color: '#90cbf9',
+                    color: '#6DB5CA',
                     border: 'none',
                     fontFamily: 'Montserrat',
                   },
                 '& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root': {
-                    color: '#90cbf9',                                        // Меняет цвет label
+                    color: '#6DB5CA',                                        // Меняет цвет label
                 },
                 '& .css-1d3z3hw-MuiOutlinedInput-notchedOutline': {
                     borderStyle: 'none',                                // Убирает бордер у инпута

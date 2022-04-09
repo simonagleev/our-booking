@@ -22,6 +22,7 @@ export const SearchBar = () => {
                 backgroundColor: '#FCF5EF', 
                 display: 'flex',
                 flex: 1,
+
                 }}>
                 <CityInput/>
                 <DatePickerIn/>
