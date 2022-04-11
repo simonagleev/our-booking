@@ -4,7 +4,7 @@ export const Language = () => {
 
     return (
         <div>
-            <LanguageIcon style={{ color: '#FCF5EF'}}/>
+            <LanguageIcon style={{ color: '#FCF5EF', margin: '0 10px'}}/>
         </div>
          
     )

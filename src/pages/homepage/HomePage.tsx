@@ -3,6 +3,7 @@ import { AutoSizer } from "react-declarative";
 import ISize from "react-declarative/model/ISize";
 import Desctop from "./views/Desktop";
 import Mobile from "./views/Mobile";
+import Tablet from "./views/Tablet";
 
 export const HomePage = () => {
 
@@ -25,7 +26,7 @@ export const HomePage = () => {
             )
         } else if (width < md && width > sm) {
             return (
-                <p>Tablet</p>
+                <Tablet/>
             )
         } else {
             return (

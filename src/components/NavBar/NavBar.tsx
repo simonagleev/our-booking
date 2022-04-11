@@ -27,7 +27,7 @@ const useStyles = makeStyles({
         flex: .5
     },
     empty: {
-        flex: 1
+        flex: 1,
     }
 });
 

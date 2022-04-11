@@ -14,6 +14,7 @@ const fields: TypedField[] = [
   {
     type: FieldType.Group,
     fieldBottomMargin: "0",
+    fieldRightMargin: "0",
     fields: [
       {
         type: FieldType.Typography,
@@ -32,67 +33,102 @@ const fields: TypedField[] = [
       {
         type: FieldType.Group,
         fieldBottomMargin: "0",
+        fieldRightMargin: "0",
         columns: "12",
         fields: [
           {
             type: FieldType.Group,
             fieldBottomMargin: "0",
-            columns: "6",
+            fieldRightMargin: "0",
+            columns: "12",
             phoneColumns: '12',
+            tabletColumns: '12',
             fields: [
               {
                 type: FieldType.Text,
+                columns: '6',
+                phoneColumns: '12',
+                tabletColumns: '12',
                 name: 'firstName',
                 title: 'Имя',
                 description: 'Required',
               },
               {
                 type: FieldType.Text,
-                name: 'contact',
-                title: 'Email или номер телефона',
+                columns: '6',
+                phoneColumns: '12',
+                tabletColumns: '12',
+                name: 'lastName',
+                title: 'Фамилия',
                 description: 'Required',
-              },
-              {
-                type: FieldType.Text,
-                inputType: 'password',
-                name: 'password',
-                title: 'Пароль',
               },
             ]
           },
           {
             type: FieldType.Group,
             fieldBottomMargin: "0",
-            columns: "6",
+            fieldRightMargin: "0",
+            columns: "12",
             phoneColumns: '12',
+            tabletColumns: '12',
             fields: [
-                {
-                  type: FieldType.Text,
-                  name: 'lastName',
-                  title: 'Фамилия',
-                  description: 'Required',
-                },
-                {
-                  type: FieldType.Text,
-                  name: 'DOB',
-                  title: 'Дата рождения (ММ/ДД/ГГ)',
-                  description: 'Required',
-                },
-                {
-                  type: FieldType.Text,
-                  inputType: 'password',
-                  name: 'confirmPassword',
-                  title: 'Подтвердите пароль'
-                },
-              ]
+              {
+                type: FieldType.Text,
+                columns: '6',
+                phoneColumns: '12',
+                tabletColumns: '12',
+                name: 'contact',
+                title: 'Email или номер телефона',
+                description: 'Required',
+              },
+              {
+                type: FieldType.Text,
+                columns: '6',
+                phoneColumns: '12',
+                tabletColumns: '12',
+                name: 'DOB',
+                title: 'Дата рождения (ММ/ДД/ГГ)',
+                description: 'Required',
+              },
+            ]
           },
           {
             type: FieldType.Group,
             fieldBottomMargin: "0",
-            columns: "6",
+            fieldRightMargin: "0",
+            columns: "12",
+            phoneColumns: '12',
+            tabletColumns: '12',
+            fields: [
+              {
+                type: FieldType.Text,
+                columns: '6',
+                phoneColumns: '12',
+                tabletColumns: '12',
+                inputType: 'password',
+                name: 'password',
+                title: 'Пароль',
+              },
+              {
+                type: FieldType.Text,
+                columns: '6',
+                phoneColumns: '12',
+                tabletColumns: '12',
+                inputType: 'password',
+                name: 'confirmPassword',
+                title: 'Подтвердите пароль'
+              },
+            ]
+          },
+          {
+            type: FieldType.Group,
+            fieldBottomMargin: "0",
+            fieldRightMargin: "0",
+            columns: "12",
             fields: [
               {
                 type: FieldType.Checkbox,
+                fieldBottomMargin: "0",
                 name: 'remember',
                 title: "Запомнить меня",
               },
@@ -101,10 +137,13 @@ const fields: TypedField[] = [
           {
             type: FieldType.Group,
             fieldBottomMargin: "0",
+            fieldRightMargin: "0",
             columns: "12",
             fields: [
               {
                 type: FieldType.Checkbox,
+                fieldBottomMargin: "0",
+                fieldRightMargin: "0",
                 name: 'agreement',
                 title: "I agree to all the Terms and Privacy policy ",
               },
@@ -113,12 +152,16 @@ const fields: TypedField[] = [
           {
             type: FieldType.Group,
             fieldBottomMargin: "0",
+            fieldRightMargin: "0",
             columns: "12",
             fields: [
               {
                 type: FieldType.Component,
+                fieldRightMargin: "0",
                 name: 'remember',
                 columns: '6',
+                phoneColumns: '12',
+                tabletColumns: '12',
                 element: () => (
                     <CreateButtom/>
                 )
@@ -127,6 +170,8 @@ const fields: TypedField[] = [
                 type: FieldType.Component,
                 name: 'remember',
                 columns: '6',
+                phoneColumns: '12',
+                tabletColumns: '12',
                 element: () => (
                     <GoogleSignInButton/>
                 )
@@ -162,14 +207,15 @@ export const OneProfilePage = () => {
   
   return (
     <Paper style={{borderRadius: '80px', margin: '5% auto 0', width: '80%', maxWidth: '900px'}}>
-      <div style={{padding: '6.25em 8.5em', background: 'fff'}}>
+      
         <One
+          style={{padding: '4.25em 4.5em'}}
           fields={fields}
           // handler={handler}
           fallback={handleBack}
           onChange={handleChange}
         />
-      </div>
+     
     </Paper>
   );
 };

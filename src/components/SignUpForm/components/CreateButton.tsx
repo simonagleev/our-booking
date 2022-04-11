@@ -8,7 +8,7 @@ const useStyles = makeStyles({
       borderRadius: '3.5px',
       border: 'none',
       minHeight: '40px',
-      marginRight: '0.8em',
+      margin: '0 .8em .8em 0',
       
       fontFamily: 'Montserrat',
       fontStyle: 'normal',

@@ -10,7 +10,7 @@ const useStyles = makeStyles({
     borderRadius: '3.5px',
     border: 'none',
     minHeight: '40px',
-    marginLeft: '0.8em',
+    marginRight: '.8em',
 
     fontFamily: 'Montserrat',
     fontStyle: 'normal',
