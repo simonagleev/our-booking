@@ -28,8 +28,9 @@ export const DatePickerIn = () => {
       };
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns} >
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DesktopDatePicker
+          
           label="Заезд"
           inputFormat="MM/dd/yyyy"
           value={value}
@@ -37,26 +38,23 @@ export const DatePickerIn = () => {
           renderInput={(params) => (<TextField
               {...params}
               style={{
-                width: '25%',
+                width: '100%',
                 justifyContent: 'center',
                 padding: '0',
-                borderLeft: '1px solid #6DB5CA',
-                borderRight: '1px solid #6DB5CA',
               }}
               sx={{
                 outline: 'none',
                 '& input': {
                   color: '#6DB5CA',
-                  textAlign: 'center',
+                  textAlign: 'start',
                   fontFamily: 'Montserrat',
                   fontStyle: 'normal',
                   fontWeight: '400',
                   fontSize: '20px',
                   lineHeight: '24px',
                   display: 'flex',
-                  alignItems: 'center',
                   padding: '0',
-                  width: '60%'
+                  width: '80%'
                 },
                 '& fieldset': {
                   border: 'none',
@@ -68,15 +66,14 @@ export const DatePickerIn = () => {
                   justifyContent: 'center',
                 },
                 '& button': {
-                  paddingLeft: '0',
-
+                  padding: '0',
                 },
                 '& label': {
                   textAlign: 'center',
                   fontFamily: 'Montserrat',
                   fontStyle: 'normal',
                   color: '#6DB5CA',
-                  display: "flex",
+                  display: "none",
                   justifyContent: 'center',
                   alignItems: 'center',
                   position: 'absolute',
@@ -85,6 +82,9 @@ export const DatePickerIn = () => {
                 '& svg': {
                   color: '#FF7235'
                 },
+                '& .css-bkrceb-MuiButtonBase-root-MuiPickersDay-root.Mui-selected': {
+                  backgroundColor: 'orange'
+                }
 
               }}
             />

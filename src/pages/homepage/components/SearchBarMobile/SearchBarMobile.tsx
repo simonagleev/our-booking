@@ -1,11 +1,11 @@
 import { Box, Paper } from "@mui/material";
-import CityInput from "./components/CityInput";
-import CounterGuests from "./components/CounterGuests";
-import DatePickerIn from "./components/DatePickerIn";
-import DatePickerOut from "./components/DatePickerOut";
-import FindButton from "./components/FindButton";
+import CityInput from "../SearchBar/components/CityInput";
+import CounterGuests from "../SearchBar/components/CounterGuests";
+import DatePickerIn from "../SearchBar/components/DatePickerIn";
+import DatePickerOut from "../SearchBar/components/DatePickerOut";
+import FindButton from "../SearchBar/components/FindButton";
 
-export const SearchBar = () => {
+export const SearchBarMobile = () => {
     return (
         <div style={{
             display: 'flex', 
@@ -17,6 +17,7 @@ export const SearchBar = () => {
                 style={{width: '100%'}}
                 sx={{
                     display: 'flex',
+                    flexDirection: "column",
                     justifyContent: "space-between",
                     '& > :not(style)': {
                     m: 1,
@@ -27,57 +28,76 @@ export const SearchBar = () => {
                     borderRadius: '18px', 
                     backgroundColor: '#FCF5EF', 
                     display: 'flex',
-                    flex: 1,
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
                     width: '100%',
 
                     }}>
                     <Box
+                        style={{
+                            width: '100%',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            borderBottom: '1px solid #6DB5CA',
+                        }}
                         sx={{
                             display: 'flex',
                             flexWrap: 'wrap',
                             '& > :not(style)': {
                             m: 1,
+                            width: '100%',
                             },
-                            flex: 1,
                         }}
                     >
                         <CityInput/>
                     </Box>   
+                   
                     <Box
                         sx={{
                             display: 'flex',
-                            flexDirection: 'row',
+                            flexWrap: 'wrap',
+                            alignItems: 'center',
+                            justifyContent: 'center',
                             '& > :not(style)': {
-                            m: 1,
+                            m: 2,
                             },
-                            flex: 1,
-                            borderLeft: '1px solid #6DB5CA',
-                            borderRight: '1px solid #6DB5CA',
+                            borderBottom: '1px solid #6DB5CA',
                         }}
                     >
                         <DatePickerIn/>
-                    </Box>  
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            '& > :not(style)': {
-                            m: 1,
-                            },
-                            flex: 1,
-                            borderRight: '1px solid #6DB5CA',
-                        }}
-                    >
-                        <DatePickerOut/> 
                     </Box> 
+                    
                     <Box
                         sx={{
                             display: 'flex',
                             flexWrap: 'wrap',
                             '& > :not(style)': {
-                            m: 1,
+                            m: 2,
                             },
-                            flex: 1,
+                            
+                        }}
+                    >
+                        <DatePickerOut/> 
+                    </Box> 
+                     
+                    <Box
+                        style={{
+                            width: '100%',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            
+                        }}
+                        sx={{
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            '& > :not(style)': {
+                            m: 2,
+                            },
+                            borderTop: '1px solid #6DB5CA',
+                            
                         }}
                     >
                         <CounterGuests/>
@@ -92,4 +112,4 @@ export const SearchBar = () => {
     )
 }
 
-export default SearchBar;
+export default SearchBarMobile;

@@ -148,8 +148,3 @@ export const CounterGuests = () => {
 }
 
 export default observer(CounterGuests) as React.FC;
-
-//.css-1e6y48t-MuiButtonBase-root-MuiButton-root 
-//MuiButtonBase-root-MuiMenuItem-root
-
-//.css-6hp17o-MuiList-root-MuiMenu-list

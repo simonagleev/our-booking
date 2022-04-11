@@ -10,7 +10,7 @@ export class CounterService {
         {
             id: 1,
             title: 'Взрослых',
-            count: 1
+            count: 2
         },
         {
             id: 2,
@@ -20,7 +20,7 @@ export class CounterService {
         {
             id: 3,
             title: 'Номеров',
-            count: 0
+            count: 1
         }
     ]
 
@@ -33,7 +33,7 @@ export class CounterService {
     } 
     
     decrease(id: number) {
-        (id != 1)?
+        (id == 2)?
         this.counters.map(i => i.id === id && i.count>0? i.count -=1 : null):
           this.counters.map(i => i.id === id && i.count>1? i.count -=1 : null)
     }

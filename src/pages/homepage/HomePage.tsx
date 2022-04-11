@@ -2,6 +2,7 @@ import { useTheme } from "@mui/material";
 import { AutoSizer } from "react-declarative";
 import ISize from "react-declarative/model/ISize";
 import Desctop from "./views/Desktop";
+import Mobile from "./views/Mobile";
 
 export const HomePage = () => {
 
@@ -20,7 +21,7 @@ export const HomePage = () => {
     const renderContent = ({ width }: ISize) => {
         if (width < sm) {
             return (
-                <p>Mobile</p>
+                <Mobile/>
             )
         } else if (width < md && width > sm) {
             return (

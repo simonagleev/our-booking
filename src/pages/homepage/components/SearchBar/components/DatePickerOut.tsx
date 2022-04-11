@@ -37,25 +37,23 @@ export const DatePickerOut = () => {
         renderInput={(params) => (<TextField
             {...params}
             style={{
-              width: '25%',
+              width: '100%',
               justifyContent: 'center',
               padding: '0',
-              borderRight: '1px solid #6DB5CA',
             }}
             sx={{
               outline: 'none',
               '& input': {
                 color: '#6DB5CA',
-                textAlign: 'center',
+                textAlign: 'start',
                 fontFamily: 'Montserrat',
                 fontStyle: 'normal',
                 fontWeight: '400',
                 fontSize: '20px',
                 lineHeight: '24px',
                 display: 'flex',
-                alignItems: 'center',
                 padding: '0',
-                width: '60%'
+                width: '80%'
               },
               '& fieldset': {
                 border: 'none',
@@ -67,7 +65,7 @@ export const DatePickerOut = () => {
                 justifyContent: 'center',
               },
               '& button': {
-                paddingLeft: '0',
+                padding: '0',
 
               },
               '& label': {
@@ -75,11 +73,12 @@ export const DatePickerOut = () => {
                 fontFamily: 'Montserrat',
                 fontStyle: 'normal',
                 color: '#6DB5CA',
-                display: "flex",
+                display: "none",
                 justifyContent: 'center',
                 alignItems: 'center',
                 position: 'absolute',
-                top: '10px'
+                top: '10px',
+                
               },
               '& svg': {
                 color: '#FF7235'

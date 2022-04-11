@@ -18,7 +18,10 @@ export const FindButton = () => {
                 flex: 0.1,
                 alignItems: 'center',
                 textAlign: 'center',
-                padding: '1.25em 3.75em'
+                padding: '1.25em 3.75em',
+                '&:hover': {
+                    background: '#ff6929'
+                }
             }}
             variant="contained">
                 Найти

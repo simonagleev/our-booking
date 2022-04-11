@@ -2,6 +2,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { makeStyles } from '@mui/styles';
 import { useState } from 'react';
+import { NONAME } from 'dns';
 
 
 const testOptions = [
@@ -31,7 +32,7 @@ const useStyles = makeStyles({
 
 export const CityInput = () => {
     const classes = useStyles()
-    const [cityValue, setCityValue] = useState(null)
+    const [cityValue, setCityValue] = useState(testOptions[0])
     return (
         <Autocomplete classes={{root: classes.root}}      
             value={cityValue}
@@ -40,36 +41,62 @@ export const CityInput = () => {
             id="city-input"
             options={testOptions}
             filterOptions={(x) => x}
-            sx={{ width: '25%',
+            sx={{ width: '100%',
                 '& .css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root': {
                     color: '#6DB5CA',
                     border: 'none',
                     fontFamily: 'Montserrat',
-    
                     display: 'flex',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
+                    padding: 0,
+                    margin: 0
                   },
                 '& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root': {
+                    padding: 0,
+                    margin: 0,
                     color: '#6DB5CA',                                        // Меняет цвет label
                 },
                 '& .css-1d3z3hw-MuiOutlinedInput-notchedOutline': {
-                    borderStyle: 'none',                                // Убирает бордер у инпута
+                    borderStyle: 'none',   
+                    padding: 0,
+                    margin: 0                             // Убирает бордер у инпута
                 },
                 '& .css-qzbt6i-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator': {   // Убирает иконку треугольник справа
-                    display: 'none',
+                   color: '#6DB5CA',
+                   padding: 0,
+                    margin: 0
                 },
                 '& label': {
+                    width: '100%',
                     position: 'absolute',
-                    left: '30%',
+                    display: 'none',
+                    left: '20%',
                     fontFamily: 'Montserrat',
                     fontStyle: 'bold',
                     fontWeight: '400',
                     fontSize: '1.5rem',
                     lineHeight: '1.5rem',
+                    padding: 0,
+                    margin: 0
+                },
+                '& input': {
+                    width: '100%',
+                    fontFamily: 'Montserrat',
+                    fontStyle: 'bold',
+                    fontWeight: '400',
+                    fontSize: '1.5rem',
+                    lineHeight: '1.5rem',
+                    textAlign: 'center',
+                    padding: 0,
+                    margin: 0,
+                },
+                '& div': {
+                    padding: 0,
+                    margin: 0
                 }
                 
             }}
-            renderInput={(params) => <TextField  {...params} label="город" />}
+            renderInput={(params) => <TextField  {...params}  />}
         />
     )
 }
