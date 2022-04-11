@@ -97,9 +97,15 @@ export const CounterGuests = () => {
             color: '#6DB5CA',
             display: 'flex',
             alignItems: 'center',
+            fontFamily: 'Montserrat',
+            fontStyle: '',
+            fontWeight: '400',
+            fontSize: '1.5rem',
+            lineHeight: '1.5rem',
+            textTransform: 'lowercase'
         }}
       >
-        КОЛ-ВО ГОСТЕЙ
+        кол-во гостей
       </Button>
       <Menu
         sx={{

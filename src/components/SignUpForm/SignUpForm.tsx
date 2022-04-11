@@ -3,13 +3,12 @@ import { FieldType, One, TypedField } from "react-declarative";
 import { observer } from "mobx-react";
 import { useState } from "react";
 
-import ioc from "../../lib/ioc";
-
 import CreateButtom from "./components/CreateButton";
 import GoogleSignInButton from "./components/GoogleSignInButton";
 import LogInBot from "./components/LogInBot";
 import Paper from "@mui/material/Paper";
 
+import ioc from "../../lib/ioc";
 
 const fields: TypedField[] = [
   {
@@ -149,23 +148,17 @@ const fields: TypedField[] = [
 
 export const OneProfilePage = () => {
 
-    
-
   const [data, setData] = useState<any | null>(null);
-
 
   const handleChange = (data: any, initial: boolean) => {
     if (!initial) {
       setData(data);
     }
   };
-  
-  
 
   const handleBack = () => {
     ioc.routerService.push(`/`);
   };
-  
   
   return (
     <Paper style={{borderRadius: '80px', margin: '5% auto 0', width: '80%', maxWidth: '900px'}}>
@@ -178,7 +171,6 @@ export const OneProfilePage = () => {
         />
       </div>
     </Paper>
-    
   );
 };
 

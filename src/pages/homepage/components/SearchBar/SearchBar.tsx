@@ -11,6 +11,7 @@ export const SearchBar = () => {
             display: 'flex', 
             alignItems: 'center', 
             height: '100vh',
+            marginTop: '-10vh',
         }}>
             <Box
                 style={{width: '100%'}}

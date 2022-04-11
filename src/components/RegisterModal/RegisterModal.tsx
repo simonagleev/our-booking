@@ -6,7 +6,7 @@ import { observer } from 'mobx-react';
 
   
 export const RegisterModal = () => {
-
+    
     const handleClose = () => {
         ioc.modalService.registerModalClose();
         console.log('TEst close')
@@ -14,7 +14,7 @@ export const RegisterModal = () => {
     return (
     <>
         <Modal
-            open={ioc.modalService.registerModal}
+            open={ioc.modalService.registerModalSate}
             onClose={handleClose}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"

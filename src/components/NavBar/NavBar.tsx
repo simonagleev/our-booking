@@ -17,7 +17,7 @@ const useStyles = makeStyles({
         alignItems: 'center',
     },
     logo: {
-
+        color: '#FCF5EF'
     },
     rightPart: {
         width: '26.5%',
@@ -33,7 +33,7 @@ export const NavBar = () => {
         <nav className={classes.container}>
             
             <div className={classes.logo}>
-                LOGO
+                Hotel-Motel
             </div>
             <div className={classes.rightPart}>
                 <Profile/>

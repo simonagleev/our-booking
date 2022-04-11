@@ -8,6 +8,7 @@ const useStyles = makeStyles({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        cursor: 'pointer'
     },
     text: {
         color: '#FCF5EF',
@@ -27,16 +28,15 @@ const open = () => {
 export const Profile = () => {
     const classes = useStyles()
     return (
-        <div className={classes.root} onClick={open}>
-            <div>
-                <PersonIcon style={{ color: '#FCF5EF' }}/>
+        <div className={classes.root} >
+            <div >
+                <PersonIcon style={{ color: '#FCF5EF' }} onClick={open}/>
                 <RegisterModal/>
             </div>
-            <div className={classes.text} >
+            <div className={classes.text} onClick={open}>
                 Профиль
             </div>
         </div>
-
     )
 }
     

@@ -2,18 +2,18 @@ import { makeAutoObservable } from "mobx";
 
 export class ModalService {
 
-    registerModal = false;
+    registerModalSate = false;
 
     constructor() {
         makeAutoObservable(this);
     }
 
     registerModalOpen() {
-        this.registerModal = true;
+        this.registerModalSate = true;
     }
     
     registerModalClose() {
-        this.registerModal = false;
+        this.registerModalSate = false;
     }
     
 }    
