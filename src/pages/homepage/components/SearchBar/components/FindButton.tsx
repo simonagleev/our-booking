@@ -15,6 +15,7 @@ export const FindButton = () => {
                 fontSize: '1.25em',
                 lineHeight: '24px',
                 display: 'flex',
+                flex: 0.1,
                 alignItems: 'center',
                 textAlign: 'center',
                 padding: '1.25em 3.75em'

@@ -1,7 +1,6 @@
 import { useTheme } from "@mui/material";
 import { AutoSizer } from "react-declarative";
 import ISize from "react-declarative/model/ISize";
-import NavBar from "../../components/NavBar";
 import Desctop from "./views/Desktop";
 
 export const HomePage = () => {

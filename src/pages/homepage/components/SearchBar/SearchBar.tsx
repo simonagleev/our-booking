@@ -7,31 +7,39 @@ import FindButton from "./components/FindButton";
 
 export const SearchBar = () => {
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                justifyContent: "space-between",
-                '& > :not(style)': {
-                m: 1,
-                },
-                
-            }}
-         >
-            <Paper elevation={8} style={{ 
-                borderRadius: '18px', 
-                backgroundColor: '#FCF5EF', 
-                display: 'flex',
-                flex: 1,
+        <div style={{
+            display: 'flex', 
+            alignItems: 'center', 
+            height: '100vh',
+        }}>
+            <Box
+                style={{width: '100%'}}
+                sx={{
+                    display: 'flex',
+                    justifyContent: "space-between",
+                    '& > :not(style)': {
+                    m: 1,
+                    },
+                }}
+            >
+                <Paper elevation={8} style={{ 
+                    borderRadius: '18px', 
+                    backgroundColor: '#FCF5EF', 
+                    display: 'flex',
+                    flex: 1,
+                    width: '100%',
 
-                }}>
-                <CityInput/>
-                <DatePickerIn/>
-                <DatePickerOut/>
-                <CounterGuests/>
-            </Paper> 
+                    }}>
+                    <CityInput/>
+                    <DatePickerIn/>
+                    <DatePickerOut/>
+                    <CounterGuests/>
+                </Paper> 
 
-            <FindButton/>
-        </Box>
+                <FindButton/>
+            </Box>
+        </div>
+        
           
     )
 }

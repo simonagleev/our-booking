@@ -108,6 +108,7 @@ export const CounterGuests = () => {
             paddingBottom: 0,
             background: '#FCF5EF',
             maxWidth: '415px',
+            width: '25%',
           },
         }}
         id="CounterGuests-menu"

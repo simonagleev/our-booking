@@ -31,7 +31,7 @@ export const CityInput = () => {
             disablePortal
             id="city-input"
             options={testOptions}
-            sx={{ width: 300,
+            sx={{ width: '25%',
                 '& .css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root': {
                     color: '#6DB5CA',
                     border: 'none',

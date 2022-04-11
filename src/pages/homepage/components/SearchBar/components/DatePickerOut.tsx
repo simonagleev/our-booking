@@ -37,6 +37,7 @@ export const DatePickerOut = () => {
         renderInput={(params) => (<TextField
             {...params}
             style={{
+              width: '25%',
               justifyContent: 'center',
               padding: '0',
               borderRight: '1px solid #6DB5CA',
