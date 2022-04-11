@@ -86,6 +86,9 @@ const fields: TypedField[] = [
                 columns: '6',
                 phoneColumns: '12',
                 tabletColumns: '12',
+                isInvalid: ({ DOB }) => {
+                  return "Неверная дата"
+                },
                 name: 'DOB',
                 title: 'Дата рождения (ММ/ДД/ГГ)',
                 description: 'Required',
@@ -211,6 +214,7 @@ export const OneProfilePage = () => {
         <One
           style={{padding: '4.25em 4.5em'}}
           fields={fields}
+          onInvalid={() => setData(null)}
           // handler={handler}
           fallback={handleBack}
           onChange={handleChange}
