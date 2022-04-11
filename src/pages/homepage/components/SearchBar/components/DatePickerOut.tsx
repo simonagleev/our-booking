@@ -80,6 +80,9 @@ export const DatePickerOut = () => {
                 position: 'absolute',
                 top: '10px'
               },
+              '& svg': {
+                color: '#6DB5CA'
+              },
 
             }}
           />
