@@ -1,10 +1,16 @@
 import Button from "@mui/material/Button";
 
+interface IFindButtonProps {
+    className?: string;
+}
 
-export const FindButton = () => {
+export const FindButton = ({
+    className,
+}: IFindButtonProps) => {
 
     return(
         <Button 
+            className={className}
             sx={{
                 color: '#FCF5EF',
                 backgroundColor: '#FF7235',
@@ -21,7 +27,7 @@ export const FindButton = () => {
                 padding: '1.25em 3.75em',
                 '&:hover': {
                     background: '#ff6929'
-                }
+                },
             }}
             variant="contained">
                 Найти

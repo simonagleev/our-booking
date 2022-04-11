@@ -8,7 +8,8 @@ const useStyles = makeStyles({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        flex: 1
     },
     text: {
         color: '#FCF5EF',

@@ -37,7 +37,7 @@ export const HomePage = () => {
     return (
         <div>
              {/* Ниже тут Запрашиваем ширину от контейнера и высоту от общего окна для Автосайзера, чтоб он считал от этих данных */}
-            <AutoSizer heightRequest={() => window.innerHeight - 80} target={document.body} selector='.MuiContainer-root'>
+            <AutoSizer heightRequest={() => window.innerHeight - 80} disableWidth target={document.body} selector='.MuiContainer-root'>
                 {renderContent}
             </AutoSizer>
         </div>

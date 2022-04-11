@@ -9,6 +9,8 @@ const useStyles = makeStyles({
         lineHeight: '1.5e',
         letterSpacing: '0em',
         textAlign: 'center',
+        marginRight: '10px',
+        
     },
 });
 

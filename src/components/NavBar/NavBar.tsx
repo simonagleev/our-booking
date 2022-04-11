@@ -10,20 +10,24 @@ import Profile from './components/Profile';
 const useStyles = makeStyles({
     container: {
         backgroundColor: 'rgba(0, 0, 0, 0)',
+        width: '100%',
         maxWidth: '1260px',
         margin: '22px auto',
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'stretch',
         alignItems: 'center',
     },
     logo: {
         color: '#FCF5EF'
     },
     rightPart: {
-        width: '26.5%',
         display: 'flex',
         justifyContent: 'space-around',
         alignItems: 'center',
+        flex: .5
+    },
+    empty: {
+        flex: 1
     }
 });
 
@@ -35,9 +39,14 @@ export const NavBar = () => {
             <div className={classes.logo}>
                 Hotel-Motel
             </div>
+            <div className={classes.empty}>
+
+            </div>
             <div className={classes.rightPart}>
                 <Profile/>
+                <div className={classes.empty}></div>
                 <Language/>
+                <div className={classes.empty}></div>
                 <Currency/>
             </div>
         </nav>

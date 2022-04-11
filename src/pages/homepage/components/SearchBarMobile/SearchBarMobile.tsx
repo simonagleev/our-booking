@@ -1,11 +1,19 @@
 import { Box, Paper } from "@mui/material";
+import { makeStyles } from '@mui/styles';
 import CityInput from "../SearchBar/components/CityInput";
 import CounterGuests from "../SearchBar/components/CounterGuests";
 import DatePickerIn from "../SearchBar/components/DatePickerIn";
 import DatePickerOut from "../SearchBar/components/DatePickerOut";
 import FindButton from "../SearchBar/components/FindButton";
 
+const useStyles = makeStyles({
+    button: {
+        width: '100%',
+    },
+})
+
 export const SearchBarMobile = () => {
+    const classes = useStyles();
     return (
         <div style={{
             display: 'flex', 
@@ -14,7 +22,7 @@ export const SearchBarMobile = () => {
             marginTop: '-10vh',
         }}>
             <Box
-                style={{width: '100%'}}
+                style={{width: 'calc(100% - 16px)'}}
                 sx={{
                     display: 'flex',
                     flexDirection: "column",
@@ -68,7 +76,7 @@ export const SearchBarMobile = () => {
                     >
                         <DatePickerIn/>
                     </Box> 
-                    
+
                     <Box
                         sx={{
                             display: 'flex',
@@ -88,7 +96,6 @@ export const SearchBarMobile = () => {
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'center',
-                            
                         }}
                         sx={{
                             display: 'flex',
@@ -104,7 +111,7 @@ export const SearchBarMobile = () => {
                     </Box>   
                 </Paper> 
 
-                <FindButton/>
+                <FindButton className={classes.button}/>
             </Box>
         </div>
         
