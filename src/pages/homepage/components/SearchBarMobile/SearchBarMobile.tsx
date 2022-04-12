@@ -65,6 +65,7 @@ export const SearchBarMobile = () => {
                     <Box
                         sx={{
                             display: 'flex',
+                            width: '100%',
                             flexWrap: 'wrap',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -74,7 +75,19 @@ export const SearchBarMobile = () => {
                             borderBottom: '1px solid #6DB5CA',
                         }}
                     >
+                        <Box
+                        sx={{
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            '& > :not(style)': {
+                            m: 0,
+                            },
+                            
+                        }}
+                    >
                         <DatePickerIn/>
+                    </Box> 
+                        
                     </Box> 
 
                     <Box

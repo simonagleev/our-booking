@@ -33,15 +33,26 @@ const useStyles = makeStyles({
 
 export const CityInput = () => {
     const classes = useStyles()
-    const [cityValue, setCityValue] = useState(ioc.citySearchService.cities[0])
+
+    const [value, setValue] = useState<string | null>(ioc.citySearchService.cities[0])
+    const [inputValue, setInputValue] = useState('');
+
+    
     return (
-        <Autocomplete classes={{root: classes.root}}      
-            value={cityValue}
+        <Autocomplete classes={{root: classes.root}} 
+            value={value}
+            onChange={(event: any, newValue: string | null) => {
+            setValue(newValue);
+            }}
+            inputValue={inputValue}
+            onInputChange={(event, newInputValue) => {
+            setInputValue(newInputValue);
+            }}   
             clearOnEscape
-            disablePortal
             id="city-input"
+            autoComplete
+            autoHighlight
             options={ioc.citySearchService.cities}
-            filterOptions={(x) => x}
             sx={{ width: '100%',
                 '& .css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root': {
                     color: '#6DB5CA',
@@ -58,32 +69,21 @@ export const CityInput = () => {
                     color: '#6DB5CA',                                        // Меняет цвет label
                 },
                 '& .css-1d3z3hw-MuiOutlinedInput-notchedOutline': {
-                    borderStyle: 'none',   
+                    borderStyle: 'none',   // Убирает бордер у инпута
                     padding: 0,
-                    margin: 0                             // Убирает бордер у инпута
+                    margin: 0                             
                 },
                 '& .css-qzbt6i-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator': {   // Убирает иконку треугольник справа
                    color: '#6DB5CA',
                    padding: 0,
-                    margin: 0
+                   margin: 0
                 },
                 '& label': {
-                    width: '100%',
-                    position: 'absolute',
                     display: 'none',
-                    left: '20%',
-                    fontFamily: 'Montserrat',
-                    fontStyle: 'bold',
-                    fontWeight: '400',
-                    fontSize: '1.5rem',
-                    lineHeight: '1.5rem',
-                    padding: 0,
-                    margin: 0
                 },
                 '& input': {
                     width: '100%',
                     fontFamily: 'Montserrat',
-                    fontStyle: 'bold',
                     fontWeight: '400',
                     fontSize: '1.5rem',
                     lineHeight: '1.5rem',
@@ -95,9 +95,8 @@ export const CityInput = () => {
                     padding: 0,
                     margin: 0
                 }
-                
             }}
-            renderInput={(params) => <TextField  {...params}  />}
+            renderInput={(params) => <TextField  {...params} label='город' />}
         />
     )
 }
