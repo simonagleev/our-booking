@@ -2,8 +2,8 @@ import { Box, Paper } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 import CityInput from "../SearchBar/components/CityInput";
 import CounterGuests from "../SearchBar/components/CounterGuests";
-import DatePickerIn from "../SearchBar/components/DatePickerIn";
-import DatePickerOut from "../SearchBar/components/DatePickerOut";
+import DatePickerInMobile from "../SearchBar/components/DatePickerInMobile";
+import DatePickerOutMobile from "../SearchBar/components/DatePickerOutMobile";
 import FindButton from "../SearchBar/components/FindButton";
 
 const useStyles = makeStyles({
@@ -82,10 +82,9 @@ export const SearchBarMobile = () => {
                             '& > :not(style)': {
                             m: 0,
                             },
-                            
                         }}
                     >
-                        <DatePickerIn/>
+                        <DatePickerInMobile/>
                     </Box> 
                         
                     </Box> 
@@ -100,7 +99,7 @@ export const SearchBarMobile = () => {
                             
                         }}
                     >
-                        <DatePickerOut/> 
+                        <DatePickerOutMobile/> 
                     </Box> 
                      
                     <Box

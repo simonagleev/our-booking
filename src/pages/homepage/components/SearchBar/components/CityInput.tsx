@@ -53,7 +53,7 @@ export const CityInput = () => {
             autoComplete
             autoHighlight
             options={ioc.citySearchService.cities}
-            sx={{ width: '100%',
+            sx={{ 
                 '& .css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root': {
                     color: '#6DB5CA',
                     border: 'none',
@@ -61,7 +61,8 @@ export const CityInput = () => {
                     display: 'flex',
                     justifyContent: 'center',
                     padding: 0,
-                    margin: 0
+                    margin: 0,
+                    paddingRight: '0px',
                   },
                 '& .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root': {
                     padding: 0,
@@ -93,8 +94,9 @@ export const CityInput = () => {
                 },
                 '& div': {
                     padding: 0,
-                    margin: 0
-                }
+                    margin: 0,
+                    paddingRight: '0px !important',
+                },
             }}
             renderInput={(params) => <TextField  {...params} label='город' />}
         />
