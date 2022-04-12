@@ -4,6 +4,8 @@ export class ModalService {
 
     registerModalSate = false;
 
+    currencyModalState = false;
+
     constructor() {
         makeAutoObservable(this);
     }

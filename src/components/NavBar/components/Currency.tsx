@@ -1,6 +1,7 @@
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
+    
     text: {
         color: '#FCF5EF',
         fontFamily: 'Montserrat',
@@ -10,7 +11,7 @@ const useStyles = makeStyles({
         letterSpacing: '0em',
         textAlign: 'center',
         marginRight: '10px',
-        
+        cursor: 'pointer',
     },
 });
 
