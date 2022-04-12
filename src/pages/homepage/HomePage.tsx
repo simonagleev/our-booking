@@ -1,6 +1,7 @@
 import { useTheme } from "@mui/material";
 import { AutoSizer } from "react-declarative";
 import ISize from "react-declarative/model/ISize";
+import ioc from "../../lib/ioc";
 import Desctop from "./views/Desktop";
 import Mobile from "./views/Mobile";
 import Tablet from "./views/Tablet";
@@ -36,7 +37,7 @@ export const HomePage = () => {
     };
 
     return (
-        <div>
+        <div onClick={() => ioc.citySearchService.test()}>
              {/* Ниже тут Запрашиваем ширину от контейнера и высоту от общего окна для Автосайзера, чтоб он считал от этих данных */}
             <AutoSizer heightRequest={() => window.innerHeight - 80} disableWidth target={document.body} selector='.MuiContainer-root'>
                 {renderContent}

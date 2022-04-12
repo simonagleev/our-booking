@@ -3,6 +3,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import { makeStyles } from '@mui/styles';
 import { useState } from 'react';
 import { NONAME } from 'dns';
+import ioc from '../../../../../lib/ioc';
 
 
 const testOptions = [
@@ -32,14 +33,14 @@ const useStyles = makeStyles({
 
 export const CityInput = () => {
     const classes = useStyles()
-    const [cityValue, setCityValue] = useState(testOptions[0])
+    const [cityValue, setCityValue] = useState(ioc.citySearchService.cities[0])
     return (
         <Autocomplete classes={{root: classes.root}}      
             value={cityValue}
             clearOnEscape
             disablePortal
             id="city-input"
-            options={testOptions}
+            options={ioc.citySearchService.cities}
             filterOptions={(x) => x}
             sx={{ width: '100%',
                 '& .css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root': {
