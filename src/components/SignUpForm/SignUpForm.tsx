@@ -8,6 +8,7 @@ import GoogleSignInButton from "./components/GoogleSignInButton";
 import LogInBot from "./components/LogInBot";
 import Paper from "@mui/material/Paper";
 
+import IUser from "../../model/IUser";
 import ioc from "../../lib/ioc";
 
 const fields: TypedField[] = [
@@ -196,9 +197,9 @@ const fields: TypedField[] = [
 
 export const OneProfilePage = () => {
 
-  const [data, setData] = useState<any | null>(null);
+  const [data, setData] = useState<IUser | null>(null);
 
-  const handleChange = (data: any, initial: boolean) => {
+  const handleChange = (data: IUser, initial: boolean) => {
     if (!initial) {
       setData(data);
     }
@@ -207,19 +208,32 @@ export const OneProfilePage = () => {
   const handleBack = () => {
     ioc.routerService.push(`/`);
   };
-  
+
+  const handleSave = async () => {
+    if (data) {
+      console.log('data есть')
+      
+    } else {
+      console.log("NOTHING CHANGED")
+    }
+  }
+
+  const test = () => {
+    console.log('data')
+    console.log(data)
+  }
   return (
     <Paper style={{borderRadius: '80px', margin: '5% auto 0', width: '80%', maxWidth: '900px'}}>
-      
-        <One
-          style={{padding: '4.25em 4.5em'}}
-          fields={fields}
-          onInvalid={() => setData(null)}
-          // handler={handler}
-          fallback={handleBack}
-          onChange={handleChange}
-        />
-     
+      <One
+        style={{padding: '4.25em 4.5em'}}
+        fields={fields}
+        onInvalid={() => setData(null)}
+        // handler={handler}
+        fallback={handleBack}
+        onChange={handleChange}
+        
+      />
+      <button onClick={test}>test</button>
     </Paper>
   );
 };

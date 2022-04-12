@@ -1,19 +1,22 @@
 import { makeAutoObservable } from "mobx";
-
-interface IPerson {
-    id: string,
-    firstName: string,
-    lastName: string,
-    dob?: Date,
-    contact: number | string,
-}
+import IUser from "../../model/IUser";
 
 
 export class PersonSerice {
 
+    peopleList: IUser[] = [];
+
+    access = false;
+
     constructor() {
         makeAutoObservable(this);
     }
+
+    addUser(person: IUser) {
+        this.peopleList.push(person)
+    }
+
+    
 
 }    
 

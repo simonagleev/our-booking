@@ -9,6 +9,7 @@ import TYPES from "./types";
 import { inject } from 'react-declarative';
 import CitySearchService from "./base/CitySearchService";
 import PersonSerice from "./base/PersonSerice";
+import CurrencyService from "./base/CurrencyService";
 
 
 
@@ -19,6 +20,7 @@ export const ioc = {
     routerService: inject<RouterService>(TYPES.routerService),
     citySearchService: inject<CitySearchService>(TYPES.citySearchService),
     personSerice: inject<PersonSerice>(TYPES.personSerice),
+    сurrencyService: inject<CurrencyService>(TYPES.сurrencyService),
 };
 
 (window as any).ioc = ioc;

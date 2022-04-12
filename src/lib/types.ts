@@ -5,6 +5,7 @@ export const TYPES = {
     routerService: Symbol.for('routerService'),
     citySearchService: Symbol.for('citySearchService'),
     personSerice: Symbol.for('personSerice'),
+    сurrencyService: Symbol.for('сurrencyService'),
 };
 
 export default TYPES;
