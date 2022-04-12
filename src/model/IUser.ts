@@ -1,8 +1,8 @@
 export interface IUser {
-    id: string,
+    id?: string,
     firstName: string,
     lastName: string,
-    dob?: Date,
+    DOB?: string,
     contact?: number | string,
     password?: string
 }
