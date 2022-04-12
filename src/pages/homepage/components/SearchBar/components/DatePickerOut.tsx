@@ -31,7 +31,7 @@ export const DatePickerOut = () => {
     <LocalizationProvider dateAdapter={AdapterDateFns} >
       <DesktopDatePicker
         label="Выезд"
-        inputFormat="MM/dd/yyyy"
+        inputFormat="dd/MM/yyyy"
         value={value}
         onChange={handleChange}
         renderInput={(params) => (<TextField

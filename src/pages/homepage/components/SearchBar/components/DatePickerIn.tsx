@@ -32,7 +32,7 @@ export const DatePickerIn = () => {
         <DesktopDatePicker
           
           label="Заезд"
-          inputFormat="MM/dd/yyyy"
+          inputFormat="dd/MM/yyyy"
           value={value}
           onChange={handleChange}
           renderInput={(params) => (<TextField
