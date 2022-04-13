@@ -53,6 +53,8 @@ const fields: TypedField[] = [
                 name: 'firstName',
                 title: 'Имя',
                 description: 'Required',
+                inputFormatterTemplate: '00000000000000000000',
+                inputFormatterAllowed: /[a-z, а-я]/i,
               },
               {
                 type: FieldType.Text,
@@ -62,6 +64,8 @@ const fields: TypedField[] = [
                 name: 'lastName',
                 title: 'Фамилия',
                 description: 'Required',
+                inputFormatterTemplate: '00000000000000000000',
+                inputFormatterAllowed: /[a-z, а-я]/i,
               },
             ]
           },
@@ -78,9 +82,11 @@ const fields: TypedField[] = [
                 columns: '6',
                 phoneColumns: '12',
                 tabletColumns: '12',
-                name: 'contact',
-                title: 'Email или номер телефона',
+                name: 'phone',
+                title: 'Номер телефона',
                 description: 'Required',
+                inputFormatterTemplate: '+0 000 000 00 00',
+                inputFormatterAllowed: /[0-9]/,
               },
               {
                 type: FieldType.Text,
@@ -93,6 +99,8 @@ const fields: TypedField[] = [
                 name: 'DOB',
                 title: 'Дата рождения (ММ/ДД/ГГ)',
                 description: 'Required',
+                inputFormatterTemplate: '00/00/0000',
+                inputFormatterAllowed: /[0-9]/,
               },
             ]
           },
