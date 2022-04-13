@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { RowId } from "react-declarative";
-import IUser from "../../model/IUser";
+import IUser from "../../../model/IUser";
 import { v4 as uuidv4 } from 'uuid';
 
 export class PersonSerice {

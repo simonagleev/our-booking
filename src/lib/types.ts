@@ -8,6 +8,9 @@ export const TYPES = {
     currencyService: Symbol.for('currencyService'),
     authService: Symbol.for('authService'),
     sessionService: Symbol.for('sessionService'),
+    errorService: Symbol.for('errorService'),
+    apiService: Symbol.for('apiService'),
+
 };
 
 export default TYPES;

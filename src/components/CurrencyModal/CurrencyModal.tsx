@@ -8,13 +8,13 @@ import { observer } from 'mobx-react';
 export const CurrencyModal = () => {
     
     const handleClose = () => {
-        ioc.modalService.registerModalClose();
+        ioc.modalService.setRegisterModal(false);
         console.log('TEst close')
     }
     return (
     <>
         <Modal
-            open={ioc.modalService.registerModalSate}
+            open={ioc.modalService.registerModal}
             onClose={handleClose}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"

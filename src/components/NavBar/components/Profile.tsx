@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 });
 
 const open = () => {
-    ioc.modalService.registerModalOpen()
+    ioc.modalService.setRegisterModal(true)
 }
 
 export const Profile = () => {

@@ -1,12 +1,4 @@
 import { makeAutoObservable } from "mobx";
-import { useState } from "react";
-import ioc from "../ioc";
-
-
-const createClient = async () => {
-         
-        
-};
 
 export class AuthService {
 
@@ -14,47 +6,20 @@ export class AuthService {
         makeAutoObservable(this);
     }
 
-    authPopup = async () => {
-        let token: string | false = false;
-        try {
-
-            ioc.alertService.push('Signed in successfully');
-        } catch (e) {
-            ioc.alertService.push('Authorization failed');
-            throw e;
-        } finally {
-          return token;
-        }
+    authPopup = () => {
+        throw new Error('todo')
     };
 
-    authRedirect = async () => {
-        try {
-          
-        
-        } catch(e) {
-          ioc.alertService.push('Authorization failed');
-          throw e;
-        }
+    authRedirect = () => {
+        throw new Error('todo')
     };
 
-    logoutRedirect = async () => {
-        try {
-          
-        } catch (e) {
-          console.log('logout failed', e);
-          
-        }
+    logoutRedirect = () => {
+        throw new Error('todo')
     };
 
-    logout = async () => {
-        try {
-          
-         
-          
-        } catch (e) {
-          console.log('logout failed', e);
-          
-        }
+    logout = () => {
+        throw new Error('todo')
     };
     
 }    

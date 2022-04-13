@@ -1,6 +1,32 @@
 import { ISwitchItem } from 'react-declarative';
+
+import {
+  CC_ERROR,
+  CC_DENIED,
+  CC_NOTFOUND,
+  CC_OFFLINE,
+} from './config';
+
 import HomePage from './pages/homepage';
 
+const systemRoutes: ISwitchItem[] = [
+  {
+    path: CC_ERROR,
+    element: () => <p>CC_ERROR</p>,
+  },
+  {
+    path: CC_DENIED,
+    element: () => <p>CC_DENIED</p>,
+  },
+  {
+    path: CC_NOTFOUND,
+    element: () => <p>CC_NOTFOUND</p>,
+  },
+  {
+    path: CC_OFFLINE,
+    element: () => <p>CC_OFFLINE</p>,
+  },
+]
 
 export const routes: ISwitchItem[] = [
   {
@@ -11,6 +37,7 @@ export const routes: ISwitchItem[] = [
     path: '/home-page',
     element: HomePage,
   },
+  ...systemRoutes
 ];
-  
-  export default routes;
+
+export default routes;

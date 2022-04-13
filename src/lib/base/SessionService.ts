@@ -1,7 +1,7 @@
 
 import { makeAutoObservable } from "mobx";
 
-import createLsManager from "../utils/createLsManager";
+import createLsManager from "../../utils/createLsManager";
 
 const storageManager = createLsManager('CC_SESSION_ID');
 
@@ -12,29 +12,29 @@ interface ISessionInfo {
 
 export class SessionService {
 
-  // readonly sessionInfo: ISessionInfo = {
-  //   sessionId: storageManager.getValue(),
-  // };
+  readonly sessionInfo: ISessionInfo = {
+    sessionId: storageManager.getValue(),
+  };
 
-  // get sessionId() {
-  //   return this.sessionInfo.sessionId;
-  // };
+  get sessionId() {
+    return this.sessionInfo.sessionId;
+  };
 
   constructor() {
     makeAutoObservable(this);
   };
 
-  // dispose = () => {
-  //   storageManager.setValue('');
-  //   this.sessionInfo.sessionId = '';
-  // };
+  dispose = () => {
+    storageManager.setValue('');
+    this.sessionInfo.sessionId = '';
+  };
 
-  // setSessionId = (sessionId: string, keep = true) => {
-  //   if (keep) {
-  //     storageManager.setValue(sessionId);
-  //   }
-  //   this.sessionInfo.sessionId = sessionId;
-  // };
+  setSessionId = (sessionId: string, keep = true) => {
+    if (keep) {
+      storageManager.setValue(sessionId);
+    }
+    this.sessionInfo.sessionId = sessionId;
+  };
 
 };
 

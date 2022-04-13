@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { russianCitiesList } from "../../mock/RussianCities";
+import { russianCitiesList } from "../../../mock/RussianCities";
 
 
 
