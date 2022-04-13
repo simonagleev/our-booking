@@ -1,5 +1,5 @@
 
-import CounterService from "./base/CounterService";
+import CounterService from "./otherServices/CounterService";
 import RouterService from "./base/RouterService";
 import AlertService from "./base/AlertService";
 import ModalService from "./base/ModalService";
@@ -7,9 +7,11 @@ import ModalService from "./base/ModalService";
 import "./config"
 import TYPES from "./types";
 import { inject } from 'react-declarative';
-import CitySearchService from "./base/CitySearchService";
-import PersonSerice from "./base/PersonSerice";
+import CitySearchService from "./otherServices/CitySearchService";
+import PersonSerice from "./otherServices/PersonSerice";
 import CurrencyService from "./base/CurrencyService";
+import AuthService from "./base/AuthService";
+import SessionService from "./base/SessionService";
 
 
 
@@ -20,7 +22,9 @@ export const ioc = {
     routerService: inject<RouterService>(TYPES.routerService),
     citySearchService: inject<CitySearchService>(TYPES.citySearchService),
     personSerice: inject<PersonSerice>(TYPES.personSerice),
-    сurrencyService: inject<CurrencyService>(TYPES.сurrencyService),
+    currencyService: inject<CurrencyService>(TYPES.currencyService),
+    authService: inject<AuthService>(TYPES.authService),
+    sessionService: inject<SessionService>(TYPES.sessionService),
 };
 
 (window as any).ioc = ioc;

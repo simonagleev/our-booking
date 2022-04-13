@@ -3,7 +3,7 @@ export interface IUser {
     firstName: string,
     lastName: string,
     DOB?: string,
-    contact?: number | string,
+    phone?: number,
     password?: string
 }
 export default IUser;

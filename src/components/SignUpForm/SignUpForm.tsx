@@ -93,9 +93,9 @@ const fields: TypedField[] = [
                 columns: '6',
                 phoneColumns: '12',
                 tabletColumns: '12',
-                isInvalid: ({ DOB }) => {
-                  return "Неверная дата"
-                },
+                // isInvalid: ({ DOB }) => {
+                //   return "Неверная дата"
+                // },
                 name: 'DOB',
                 title: 'Дата рождения (ММ/ДД/ГГ)',
                 description: 'Required',
@@ -205,11 +205,11 @@ const fields: TypedField[] = [
 
 export const OneProfilePage = () => {
 
-  const [data, setData] = useState<IUser | null>(null);
+  const [userData, setUserData] = useState<IUser | null>(null);
 
   const handleChange = (data: IUser, initial: boolean) => {
     if (!initial) {
-      setData(data);
+      setUserData(data);
     }
   };
 
@@ -218,7 +218,7 @@ export const OneProfilePage = () => {
   };
 
   const handleSave = async () => {
-    if (data) {
+    if (userData) {
       console.log('data есть')
       
     } else {
@@ -226,22 +226,76 @@ export const OneProfilePage = () => {
     }
   }
 
-  const test = () => {
-    console.log('data')
-    console.log(data)
+  const gettingData = () => {
+    if(userData) {
+      ioc.personSerice.createPerson(userData)
+      console.log(userData)
+      console.log('PERSOn')
+      console.log(ioc.personSerice.person)
+      test(ioc.personSerice.person)
+    } else {
+      console.log('userdata is Empty')
+    }
   }
+
+
+  // Нже идут тестовые штуки по взаимодействию с сервером
+
+
+  const [testUsers, setTestusers] = useState([])
+  const testGet = () => {
+    fetch('http://localhost:3000/users')
+      .then(res => res.json())
+      .then(data => {
+        setTestusers(data)
+        console.log(data)
+      })
+    console.log('test users')
+    setTimeout(() => {console.log(testUsers) }, 3000)
+     
+  }
+
+  const [testFetch, setTestFetch] = useState(null)
+
+  const fetchData = () => {                                         
+    fetch('http://localhost:3000/users')
+      .then(res => res.json())
+      .then(data => {
+        setTestFetch(data)
+      })
+  }
+
+  const url = 'http://localhost:3000/users'
+
+  const userNew = {"id": 3, "name": "Bob", "phone": "+756777655" }
+  const userNew2 = {"id": 4, "name": "Jim", "phone": "+756777655" }
+
+  const test = (personData: IUser) => {
+    fetch(url, {                                  
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(personData)
+    })
+  }
+  
+
   return (
     <Paper style={{borderRadius: '80px', margin: '5% auto 0', width: '80%', maxWidth: '900px'}}>
       <One
         style={{padding: '4.25em 4.5em'}}
         fields={fields}
-        onInvalid={() => setData(null)}
+        onInvalid={() => setUserData(null)}
         // handler={handler}
         fallback={handleBack}
         onChange={handleChange}
         
       />
-      <button onClick={test}>test</button>
+      {/* <button onClick={test}>test</button> */}
+      <button onClick={testGet}>test GET</button>
+    
+      <button onClick={gettingData}>Getting dAta</button>
     </Paper>
   );
 };

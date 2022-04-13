@@ -7,6 +7,8 @@ import routes from './routes';
 
 import ioc from './lib/ioc';
 
+import { Auth } from 'react-vk';
+
 
 const App = () => {
 
@@ -15,7 +17,6 @@ const App = () => {
       ioc.routerService.push('/');
     }    
   }  
-
 
   return (
     <Scaffold>

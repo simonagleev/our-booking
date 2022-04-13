@@ -38,6 +38,13 @@ export class AlertService {
         });
     };
     
+    push = (message: string) => {
+        this.hideCurrent();
+        this.alerts.push({
+            key: randomString(),
+            message,
+        });
+      };
 }
 
 export default AlertService;

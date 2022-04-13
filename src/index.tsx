@@ -1,9 +1,13 @@
 import ReactDOM from 'react-dom';
 import App from './App';
 
+import AuthProvider from 'react-vk';
+
 
 const wrappedApp = (
-  <App />
+  <AuthProvider>
+    <App />
+  </AuthProvider>
 );
 
 ReactDOM.render(wrappedApp, document.getElementById('root'));
