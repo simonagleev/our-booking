@@ -10,6 +10,7 @@ import Paper from "@mui/material/Paper";
 
 import IUser from "../../model/IUser";
 import ioc from "../../lib/ioc";
+import Box from "@mui/material/Box";
 
 const fields: TypedField[] = [
   {
@@ -156,7 +157,7 @@ const fields: TypedField[] = [
                 type: FieldType.Checkbox,
                 fieldBottomMargin: "0",
                 fieldRightMargin: "0",
-                name: 'agreement',
+                name: 'terms',
                 title: "I agree to all the Terms and Privacy policy ",
               },
             ]
@@ -205,11 +206,14 @@ const fields: TypedField[] = [
 
 export const OneProfilePage = () => {
 
-  const [userData, setUserData] = useState<IUser | null>(null);
+  const userData = ioc.personSerice.userData;
+
+  
 
   const handleChange = (data: IUser, initial: boolean) => {
     if (!initial) {
-      setUserData(data);
+      // setUserData(data);
+      ioc.personSerice.getUserData(data)
     }
   };
 
@@ -220,29 +224,17 @@ export const OneProfilePage = () => {
   const handleSave = async () => {
     if (userData) {
       console.log('data есть')
-      
     } else {
       console.log("NOTHING CHANGED")
     }
-  }
-
-  const gettingData = () => {
-    if(userData) {
-      ioc.personSerice.createPerson(userData)
-      console.log(userData)
-      console.log('PERSOn')
-      console.log(ioc.personSerice.person)
-      test(ioc.personSerice.person)
-    } else {
-      console.log('userdata is Empty')
-    }
-  }
+  };
 
 
   // Нже идут тестовые штуки по взаимодействию с сервером
 
 
   const [testUsers, setTestusers] = useState([])
+
   const testGet = () => {
     fetch('http://localhost:3000/users')
       .then(res => res.json())
@@ -255,47 +247,27 @@ export const OneProfilePage = () => {
      
   }
 
-  const [testFetch, setTestFetch] = useState(null)
+  // const [testFetch, setTestFetch] = useState(null)
 
-  const fetchData = () => {                                         
-    fetch('http://localhost:3000/users')
-      .then(res => res.json())
-      .then(data => {
-        setTestFetch(data)
-      })
-  }
-
-  const url = 'http://localhost:3000/users'
-
-  const userNew = {"id": 3, "name": "Bob", "phone": "+756777655" }
-  const userNew2 = {"id": 4, "name": "Jim", "phone": "+756777655" }
-
-  const test = (personData: IUser) => {
-    fetch(url, {                                  
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(personData)
-    })
-  }
+  // const fetchData = () => {                                         
+  //   fetch('http://localhost:3000/users')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setTestFetch(data)
+  //     })
+  // }
   
-
   return (
     <Paper style={{borderRadius: '80px', margin: '5% auto 0', width: '80%', maxWidth: '900px'}}>
       <One
         style={{padding: '4.25em 4.5em'}}
         fields={fields}
-        onInvalid={() => setUserData(null)}
+        // onInvalid={() => setUserData(null)}
         // handler={handler}
         fallback={handleBack}
         onChange={handleChange}
         
-      />
-      {/* <button onClick={test}>test</button> */}
-      <button onClick={testGet}>test GET</button>
-    
-      <button onClick={gettingData}>Getting dAta</button>
+      />  
     </Paper>
   );
 };

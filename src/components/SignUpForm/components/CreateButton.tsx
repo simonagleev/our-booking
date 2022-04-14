@@ -1,4 +1,5 @@
 import { makeStyles } from '@mui/styles';
+import ioc from '../../../lib/ioc';
 
 
 const useStyles = makeStyles({
@@ -35,11 +36,12 @@ const useStyles = makeStyles({
     },
   });
 
+  
 
 export const CreateButtom = () => {
    const classes = useStyles(); 
    return (
-       <button className={classes.counterButton}>
+       <button className={classes.counterButton} onClick={() => ioc.personSerice.onUserRegister()}>
            Создать аккаунт
        </button>
    )

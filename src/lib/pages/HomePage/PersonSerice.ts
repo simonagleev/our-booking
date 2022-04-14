@@ -6,25 +6,22 @@ import { v4 as uuidv4 } from 'uuid';
 export class PersonSerice {
 
     peopleList: IUser[] = [];
-    // innerProfiles = new Map<RowId, IUser>(this.peopleList.map(p => [p.id, p]))
 
     person: IUser = {     
-        id: '123',
-        firstName: 'Boba',
-        lastName: 'Fet',
-        DOB: '12.12.1992',
-        phone: 88005553535,
-        password: '123456'
+        id: '',
+        firstName: '',
+        lastName: '',
+        DOB: '',
+        phone: '',
+        password: '',
+        confirmPassword: '',
+        remember: false,
+        terms: false,
     } 
 
-    // person = {
-        // id: '123',
-        // firstName: 'Boba',
-        // lastName: 'Fet',
-        // DOB: '12.12.1992',
-        // phone: 88005553535,
-        // password: '123456'
-    // }
+    userData: IUser | null = null;
+
+    url = 'http://localhost:3000/users';
 
     access = false;
 
@@ -36,20 +33,47 @@ export class PersonSerice {
         this.peopleList.push(person)
     }
 
-    // one(id: string) {
-    //     if (id === 'create') {
-    //       return null;
-    //     } else {
-    //       return this.innerProfiles.set(id) || null;
-    //     }
-    // };
-
-    createPerson(person: IUser) {
-   
+    createUser(person: IUser) {
         this.person = person
         this.person.id = uuidv4();
     }
 
+    getUserData(data: IUser) {
+        this.userData = data
+    }
+
+    clearUserData(data: IUser) {
+        this.userData = null
+    }
+
+    passwordValidation = (password: string, confirmPassword: string): boolean => password === confirmPassword;
+
+    postUser = (personData: IUser) => {
+        fetch(this.url, {                                  
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(personData)
+        })
+    }
+
+    onUserRegister = () => {
+        if(this.userData) {
+          if (!this.passwordValidation(this.userData.password, this.userData.confirmPassword) || this.userData.password == '') {
+            console.log('Ошибка Валидации')
+          return
+          } else {
+            this.createUser(this.userData)
+            console.log(this.userData)
+            console.log('User создан')
+            this.postUser(this.person)
+            this.clearUserData(this.userData)
+          }
+        } else {
+          console.log('userdata is Empty')
+        }
+    }  
 }    
 
 export default PersonSerice;
