@@ -1,22 +1,24 @@
 import Button from "@mui/material/Button";
+import LoginModal from "../../../../../components/LoginModal";
 import ioc from "../../../../../lib/ioc";
 
 interface IFindButtonProps {
     className?: string;
 }
 
+
 export const FindButton = ({
     className,
 }: IFindButtonProps) => {
 
-    const test = () => {
-        ioc.routerService.replace('/hotels')
-        
+    const open = () => {
+        ioc.modalService.setLoginModal(true)
     }
 
     return(
+        <>
         <Button 
-            onClick={test}
+            onClick={open}
             className={className}
             sx={{
                 color: '#FCF5EF',
@@ -39,6 +41,8 @@ export const FindButton = ({
             variant="contained">
                 Найти
         </Button>
+        <LoginModal/>
+        </>
     )
 }
  
