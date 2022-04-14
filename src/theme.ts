@@ -49,3 +49,5 @@ export default THEME_LIGHT;
 
 
 export const colorBackground = "#6DB5CA";
+export const colorOrange = '#FF7235';
+export const colorBackgroundPaper = "#FCF5EF";

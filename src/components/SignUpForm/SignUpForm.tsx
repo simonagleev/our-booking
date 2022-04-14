@@ -10,7 +10,6 @@ import Paper from "@mui/material/Paper";
 
 import IUser from "../../model/IUser";
 import ioc from "../../lib/ioc";
-import Box from "@mui/material/Box";
 
 const fields: TypedField[] = [
   {
