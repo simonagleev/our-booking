@@ -8,6 +8,7 @@ import {
 } from './config';
 
 import HomePage from './pages/homepage';
+import HotelsListPage from './pages/hotelsListPage';
 
 const systemRoutes: ISwitchItem[] = [
   {
@@ -36,6 +37,10 @@ export const routes: ISwitchItem[] = [
   {
     path: '/home-page',
     element: HomePage,
+  },
+  {
+    path: '/hotels',
+    element: HotelsListPage,
   },
   ...systemRoutes
 ];

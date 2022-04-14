@@ -98,7 +98,7 @@ const fields: TypedField[] = [
                 //   return "Неверная дата"
                 // },
                 name: 'DOB',
-                title: 'Дата рождения (ММ/ДД/ГГ)',
+                title: 'Дата рождения (ДД/ММ/ГГ)',
                 description: 'Required',
                 inputFormatterTemplate: '00/00/0000',
                 inputFormatterAllowed: /[0-9]/,
@@ -244,7 +244,6 @@ export const OneProfilePage = () => {
       })
     console.log('test users')
     setTimeout(() => {console.log(testUsers) }, 3000)
-     
   }
 
   // const [testFetch, setTestFetch] = useState(null)
@@ -266,7 +265,6 @@ export const OneProfilePage = () => {
         // handler={handler}
         fallback={handleBack}
         onChange={handleChange}
-        
       />  
     </Paper>
   );

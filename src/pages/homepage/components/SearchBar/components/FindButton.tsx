@@ -1,4 +1,5 @@
 import Button from "@mui/material/Button";
+import ioc from "../../../../../lib/ioc";
 
 interface IFindButtonProps {
     className?: string;
@@ -8,8 +9,14 @@ export const FindButton = ({
     className,
 }: IFindButtonProps) => {
 
+    const test = () => {
+        ioc.routerService.replace('/hotels')
+        
+    }
+
     return(
         <Button 
+            onClick={test}
             className={className}
             sx={{
                 color: '#FCF5EF',

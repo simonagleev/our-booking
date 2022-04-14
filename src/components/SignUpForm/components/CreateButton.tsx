@@ -41,7 +41,7 @@ const useStyles = makeStyles({
 export const CreateButtom = () => {
    const classes = useStyles(); 
    return (
-       <button className={classes.counterButton} onClick={() => ioc.personSerice.onUserRegister()}>
+       <button className={classes.counterButton} onClick={() => ioc.personSerice.UserRegister()}>
            Создать аккаунт
        </button>
    )

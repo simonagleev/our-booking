@@ -2,6 +2,7 @@ import { makeAutoObservable } from "mobx";
 import { RowId } from "react-declarative";
 import IUser from "../../../model/IUser";
 import { v4 as uuidv4 } from 'uuid';
+import ioc from "../../ioc";
 
 export class PersonSerice {
 
@@ -58,22 +59,26 @@ export class PersonSerice {
         })
     }
 
-    onUserRegister = () => {
+    UserRegister = () => {
         if(this.userData) {
-          if (!this.passwordValidation(this.userData.password, this.userData.confirmPassword) || this.userData.password == '') {
-            console.log('Ошибка Валидации')
-          return
-          } else {
-            this.createUser(this.userData)
-            console.log(this.userData)
-            console.log('User создан')
-            this.postUser(this.person)
-            this.clearUserData(this.userData)
-          }
+            if (!this.passwordValidation(this.userData.password, this.userData.confirmPassword) || this.userData.password == '') {
+                console.log('Ошибка Валидации')
+            return
+            } else {
+                this.createUser(this.userData)
+                console.log(this.userData)
+                console.log('User создан')
+                this.postUser(this.person)
+                this.clearUserData(this.userData)
+            }
         } else {
           console.log('userdata is Empty')
         }
-    }  
+    };
+    
+    authUser = () => {
+        ioc.authService.auth(this.userData?.id!)
+    }
 }    
 
 export default PersonSerice;

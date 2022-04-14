@@ -44,7 +44,7 @@ export class AlertService {
             key: randomString(),
             message,
         });
-      };
+    };
 }
 
 export default AlertService;

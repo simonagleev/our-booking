@@ -2,12 +2,8 @@ import { useTheme } from "@mui/material";
 import { AutoSizer } from "react-declarative";
 import ISize from "react-declarative/model/ISize";
 
-import Desctop from "./views/Desktop";
-import Mobile from "./views/Mobile";
-import Tablet from "./views/Tablet";
 
-export const HomePage = () => {
-
+export const HotelsListPage = () => {
     const {
         breakpoints: {
             values: {
@@ -23,28 +19,26 @@ export const HomePage = () => {
     const renderContent = ({ width }: ISize) => {
         if (width < sm) {
             return (
-                <Mobile/>
+                <p>Mobole</p>
             )
         } else if (width < md && width > sm) {
             return (
-                <Tablet/>
+                <p >Tablet</p>
             )
         } else {
             return (
-                <Desctop/>
+                <p>Desctop</p>
             )
         }
     };
 
     return (
         <div>
-             {/* Ниже тут Запрашиваем ширину от контейнера и высоту от общего окна для Автосайзера, чтоб он считал от этих данных */}
             <AutoSizer heightRequest={() => window.innerHeight - 80} disableWidth target={document.body} selector='.MuiContainer-root'>
                 {renderContent}
             </AutoSizer>
         </div>
-        
     )
 }
-    
-export default HomePage;
+
+export default HotelsListPage;
