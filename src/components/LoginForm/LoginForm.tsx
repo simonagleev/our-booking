@@ -1,20 +1,22 @@
 import { ClassNames } from "@emotion/react";
-import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
-import Checkbox from "@mui/material/Checkbox";
+
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from '@mui/styles';
 import { colorBackgroundPaper, colorOrange } from "../../theme";
+import Button from "../common/Button/Button";
+import CheckBox from "../common/CheckBox";
+
 
 const useStyles = makeStyles({
     root: {
         background: colorBackgroundPaper,
         borderRadius: '80px',
-        margin: '5% auto 0',
-        width: '40%',
+        margin: '0 auto ',
+        width: '350px',
         maxWidth: '900px',
         minWidth: '350px',
         display: 'flex',
@@ -26,6 +28,9 @@ const useStyles = makeStyles({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        padding: '15px',
+        height: '350px',
+        width: '350px',
     },
     text: {
         fontFamily: 'Montserrat',
@@ -34,9 +39,10 @@ const useStyles = makeStyles({
         fontSize: '1.25em',
         lineHeight: '1.5em',
         color: colorOrange,
+        textAlign: 'center',
     },
     checkBox: {
-        color: colorOrange
+        color: colorOrange,
     },
     loginButton: {
         background: colorOrange,
@@ -51,11 +57,14 @@ const useStyles = makeStyles({
         flex: 0.1,
         alignItems: 'center',
         textAlign: 'center',
-   
-
+        maxWidth: '125px',
+        maxHeight: '55px',
         '&:hover': {
             background: '#ff6929'
         },
+    },
+    forMargin: {
+
     }
 });
 
@@ -70,7 +79,10 @@ export const LoginForm = () => {
                 className={classes.box}
                 component="form"
                 sx={{
-                    '& > :not(style)': { m: 1, width: '25ch' },
+                    gap: '15px',
+                    '& > *': { 
+                        width: '100%',
+                    },
                 }}
                 noValidate
                 autoComplete="off"
@@ -89,7 +101,7 @@ export const LoginForm = () => {
                     variant="outlined"
                 />
                 <FormControlLabel
-                    control={<Checkbox
+                    control={<CheckBox
                         className={classes.checkBox}
                         // checked={checked}
                         // onChange={handleChange}
