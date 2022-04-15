@@ -9,42 +9,48 @@ import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button';
 
 const useStyles = makeStyles({
-  dialog: {
-    '&:first-child': {
-      padding: 0,
+    dialog: {
+        '&:first-child': {
+            padding: 0,
+        },
+        overflow: 'hidden',
     },
-    overflow: 'hidden',
-  },
 });
 
-interface IModalDialogProps extends DialogProps {
-  children: React.ReactNode;
-  canCancel?: boolean;
-  dividers?: boolean;
-  onAccept: () => void;
-  onDismis: () => void;
+interface IModalDialogProps extends Omit<DialogProps, keyof {
+    open: never;
+}> {
+    children: React.ReactNode;
+    open?: boolean;
+    actions?: boolean;
+    dividers?: boolean;
+    onAccept?: () => void;
+    onDismiss?: () => void;
 }
 
 export const ModalDialog = ({
-  children,
-  dividers = false,
-  canCancel = true,
-  onAccept = () => console.log('accept'),
-  onDismis = () => console.log('dismiss'),
-  ...other
+    children,
+    open = false,
+    dividers = false,
+    actions = false,
+    onAccept = () => console.log('accept'),
+    onDismiss = () => console.log('dismiss'),
+    ...other
 }: IModalDialogProps) => {
-  const classes = useStyles();
-  return (
-    <Dialog {...other}>
-      <DialogContent dividers={dividers} className={classes.dialog}>
-        { children }
-      </DialogContent>
-      <DialogActions>
-        <Button color="primary" onClick={onAccept}>OK</Button>
-        <Button disabled={!canCancel} color="primary" onClick={onDismis}>Cancel</Button>
-      </DialogActions>
-    </Dialog>
-  );
+    const classes = useStyles();
+    return (
+        <Dialog open={open} {...other}>
+            <DialogContent dividers={dividers} className={classes.dialog}>
+                {children}
+            </DialogContent>
+            {actions && (
+                <DialogActions>
+                    <Button color="primary" onClick={onAccept}>OK</Button>
+                    <Button color="primary" onClick={onDismiss}>Cancel</Button>
+                </DialogActions>
+            )}
+        </Dialog>
+    );
 };
 
 export default ModalDialog;

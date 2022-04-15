@@ -10,22 +10,27 @@ import {
 import HomePage from './pages/HomePage';
 import HotelsListPage from './pages/HotelsListPage';
 
+import DeniedPage from './pages/system/DeniedPage';
+import ErrorPage from './pages/system/ErrorPage';
+import NotFoundPage from './pages/system/NotFoundPage';
+import OfflinePage from './pages/system/OfflinePage';
+
 const systemRoutes: ISwitchItem[] = [
   {
     path: CC_ERROR,
-    element: () => <p>CC_ERROR</p>,
+    element: ErrorPage,
   },
   {
     path: CC_DENIED,
-    element: () => <p>CC_DENIED</p>,
+    element: DeniedPage,
   },
   {
     path: CC_NOTFOUND,
-    element: () => <p>CC_NOTFOUND</p>,
+    element: NotFoundPage,
   },
   {
     path: CC_OFFLINE,
-    element: () => <p>CC_OFFLINE</p>,
+    element: OfflinePage,
   },
 ]
 

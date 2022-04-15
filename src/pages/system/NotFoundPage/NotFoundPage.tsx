@@ -4,11 +4,11 @@ import { CC_ORIGIN } from "../../../config";
 
 import ioc from "../../../lib/ioc";
 
-export const ErrorPage = () => {
+export const NotFoundPage = () => {
 
     const handleReload = () => {
         const url = new URL(ioc.routerService.previousPath, CC_ORIGIN);
-        window.location.href = url.toString();;
+        window.location.href = url.toString();
     };
 
     return (
@@ -20,7 +20,7 @@ export const ErrorPage = () => {
                 }}
             >
                 <Typography>
-                    Error
+                    NOT FOUND
                 </Typography>
                 <Button onClick={handleReload}>
                     Reload
@@ -30,4 +30,4 @@ export const ErrorPage = () => {
     )
 }
 
-export default ErrorPage;
+export default NotFoundPage;

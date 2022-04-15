@@ -7,6 +7,8 @@ const browserHistory = createBrowserHistory();
 
 export class RouterService implements BrowserHistory {
 
+  previousPath = '/';
+
   location: Location = null as never;
   action: Action = null as never;
 
@@ -27,6 +29,7 @@ export class RouterService implements BrowserHistory {
 
   updateState() {
     const { location, action } = browserHistory;
+    this.previousPath = this.location?.pathname || '/';
     this.location = location;
     this.action = action;
   }
