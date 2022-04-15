@@ -7,20 +7,11 @@ import routes from './routes';
 
 import ioc from './lib/ioc';
 
-import { Auth } from 'react-vk';
-
-
 const App = () => {
-
-  const handleMenuClick = (name: string) => {
-    if (name === 'home-page') {
-      ioc.routerService.push('/');
-    }    
-  }  
-
   return (
     <Scaffold>
       <Switch
+        history={ioc.routerService}
         items={routes}
       />
     </Scaffold>

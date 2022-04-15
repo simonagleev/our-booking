@@ -16,11 +16,7 @@ type JSON = Record<string, unknown>;
 
 export class ApiService {
 
- 
-  
   readonly sessionService = inject<SessionService>(TYPES.sessionService);
-
- 
   readonly errorService = inject<ErrorService>(TYPES.errorService);
 
   constructor() {

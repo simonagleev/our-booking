@@ -14,6 +14,7 @@ import AuthService from "./base/AuthService";
 import SessionService from "./base/SessionService";
 import ErrorService from "./base/ErrorService";
 import ApiService from "./base/ApiService";
+import { CC_DENIED, CC_ERROR, CC_OFFLINE } from "../config";
 
 
 
@@ -29,8 +30,19 @@ export const ioc = {
     sessionService: inject<SessionService>(TYPES.sessionService),
     errorService: inject<ErrorService>(TYPES.errorService),
     apiService: inject<ApiService>(TYPES.apiService),
-
 };
+
+ioc.errorService.permissionsSubject.subscribe(() => {
+    ioc.routerService.push(CC_DENIED);
+});
+
+ioc.errorService.offlineSubject.subscribe(() => {
+    ioc.routerService.push(CC_OFFLINE);
+});
+
+ioc.errorService.dieSubject.subscribe(() => {
+    ioc.routerService.push(CC_ERROR);
+});
 
 (window as any).ioc = ioc;
 

@@ -6,6 +6,7 @@ import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { makeStyles } from '@mui/styles';
+import { useState } from "react";
 import { colorBackgroundPaper, colorOrange } from "../../theme";
 import Button from "../common/Button/Button";
 import CheckBox from "../common/CheckBox";
@@ -17,11 +18,21 @@ const useStyles = makeStyles({
         borderRadius: '80px',
         margin: '0 auto ',
         width: '350px',
-        maxWidth: '900px',
-        minWidth: '350px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+
+        position: 'absolute' as 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        // position: 'absolute',
+        // left: '50%',
+        // top: '50%',
+        // marginLeft: '-175px',
+        // marginTop: '-200px',
+        
+
     },
     box: {
         display: 'flex',
@@ -73,6 +84,17 @@ export const LoginForm = () => {
 
     const classes = useStyles()
 
+    const [errorState, setErrorState] = useState(false);
+    const [phoneValue, setPhoneValue] = useState(null)
+
+    const handleUserInput = (e: any) => {
+        const name = e.target.name;
+        const value = e.target.value;
+        setPhoneValue(value);
+        console.log('phoneValue')
+        console.log(phoneValue)
+    }
+
     return (
         <Paper className={classes.root}>
             <Box
@@ -80,7 +102,7 @@ export const LoginForm = () => {
                 component="form"
                 sx={{
                     gap: '15px',
-                    '& > *': { 
+                    '& > *': {
                         width: '100%',
                     },
                 }}
@@ -92,8 +114,13 @@ export const LoginForm = () => {
                 </Typography>
                 <TextField
                     id="outlined-basic"
+                    name="phone"
                     label="Телефон"
                     variant="outlined"
+                    error={false}
+
+                    value={phoneValue}
+                    onChange={handleUserInput}
                 />
                 <TextField
                     id="outlined-basic"

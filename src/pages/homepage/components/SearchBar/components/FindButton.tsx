@@ -12,14 +12,12 @@ export const FindButton = ({
     className,
 }: IFindButtonProps) => {
 
-    const open = () => {
-        ioc.modalService.setLoginModal(true)
-    }
+    
 
     return(
         <>
         <Button 
-            onClick={open}
+            
             // className={className}
         >
             Найти

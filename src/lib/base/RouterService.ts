@@ -9,8 +9,7 @@ export class RouterService implements BrowserHistory {
 
   location: Location = null as never;
   action: Action = null as never;
-  
-  
+
   constructor() {
     makeObservable(this, {
       location: observable,

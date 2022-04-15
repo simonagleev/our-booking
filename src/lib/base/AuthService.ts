@@ -1,7 +1,14 @@
 import { makeAutoObservable } from "mobx";
+
+import { inject } from "react-declarative";
+
 import IUser from "../../model/IUser";
+import TYPES from "../types";
+import ApiService from "./ApiService";
 
 export class AuthService {
+
+    apiService = inject<ApiService>(TYPES.apiService);
 
     allUsers: IUser[] = [];
 

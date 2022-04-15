@@ -40,7 +40,6 @@ export class ErrorService {
     readonly routerService = inject<RouterService>(TYPES.routerService)
     readonly sessionService = inject<SessionService>(TYPES.sessionService);
     readonly modalService = inject<ModalService>(TYPES.modalService);
-    readonly authService = inject<AuthService>(TYPES.authService)
 
     permissionsSubject = new Subject<void>();
     offlineSubject = new Subject<void>();
@@ -97,7 +96,7 @@ export class ErrorService {
 
     logout = async () => {
         if (this.sessionService.sessionId) {
-            this.authService.logoutRedirect();
+            this.permissionsSubject.next();
         }
     };
 

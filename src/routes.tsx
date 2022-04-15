@@ -7,8 +7,8 @@ import {
   CC_OFFLINE,
 } from './config';
 
-import HomePage from './pages/homepage';
-import HotelsListPage from './pages/hotelsListPage';
+import HomePage from './pages/HomePage';
+import HotelsListPage from './pages/HotelsListPage';
 
 const systemRoutes: ISwitchItem[] = [
   {
