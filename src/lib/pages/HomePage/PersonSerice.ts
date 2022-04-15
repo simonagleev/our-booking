@@ -75,10 +75,6 @@ export class PersonSerice {
           console.log('userdata is Empty')
         }
     };
-    
-    authUser = () => {
-        ioc.authService.auth(this.userData?.id!)
-    }
 }    
 
 export default PersonSerice;

@@ -1,16 +1,18 @@
 import { makeAutoObservable } from "mobx";
 
 import { inject } from "react-declarative";
+import { string } from "yup";
 
 import IUser from "../../model/IUser";
 import TYPES from "../types";
 import ApiService from "./ApiService";
+import SessionService from "./SessionService";
 
 export class AuthService {
 
     apiService = inject<ApiService>(TYPES.apiService);
+    sessionService = inject<SessionService>(TYPES.sessionService);
 
-    allUsers: IUser[] = [];
 
     constructor() {
         makeAutoObservable(this);
@@ -31,32 +33,12 @@ export class AuthService {
     logout = () => {
         throw new Error('todo')
     };
-
-    getAllUsers = () => {
-        fetch('http://localhost:3000/users')
-            .then(res => res.json())
-            .then(data => {
-                this.allUsers = data
-                console.log(data)
-            })
-    }
-
-    auth = async(id: string) => {
-
-        await this.getAllUsers();
-
-        console.log('auth test')
-
-        if(this.allUsers.length > 0) {
-            for (let i of this.allUsers) {
-                if(i.id === id) {
-                    console.log('Ты авторизовался')
-                } else {
-                    console.log('Нет ID')
-                }
-            }
-        } else {
-            console.log('Нет allUsers')
+    
+    auth = async(phone: string, password: string, remember: boolean) => {
+        const data = await this.apiService.get<IUser[]>('http://localhost:3000/users');
+        const targetUser = data.find((user) => user.phone === phone && user.password === password);
+        if (targetUser) {
+            this.sessionService.setSessionId(targetUser.id, remember);
         }
     }
 }

@@ -6,6 +6,8 @@ import Typography from "@mui/material/Typography";
 import { makeStyles } from '@mui/styles';
 
 import { useState } from "react";
+import { FieldType, One, TypedField } from "react-declarative";
+import ioc from "../../lib/ioc";
 
 import { colorBackgroundPaper, colorOrange } from "../../theme";
 import Button from "../common/Button/Button";
@@ -33,6 +35,8 @@ const useStyles = makeStyles({
         justifyContent: 'center',
         alignItems: 'center',
         padding: '15px',
+        paddingTop: '45px',
+        paddingBottom: '40px',
         height: '350px',
         width: '350px',
     },
@@ -67,26 +71,68 @@ const useStyles = makeStyles({
             background: '#ff6929'
         },
     },
-    forMargin: {
-
-    }
 });
 
+const fields: TypedField<IAuthData>[] = [
+    {
+        type: FieldType.Text,
+        fieldRightMargin: "0",
+        fieldBottomMargin: "1",
+        columns: '12',
+        name: 'phone',
+        title: 'Телефон',
+        description: 'Required',
+        inputFormatterTemplate: '+0 (000) 000-00-00',
+        inputFormatterAllowed: /[0-9]/,
+    },
+    {
+        type: FieldType.Text,
+        fieldRightMargin: "0",
+        fieldBottomMargin: "1",
+        columns: '12',
+        name: 'password',
+        title: 'Пароль',
+        description: 'Required',
+        isInvalid: ({
+            password,
+        }) => !password.match(/[0-9a-zA-Z]/) ? 'Доступны символы 0-9, A-Z, a-z' : null,
+        inputFormatterTemplate: '00000000000000000000',
+    },
+    {
+        type: FieldType.Checkbox,
+        title: 'Запомнить',
+        name: 'remember',
+        defaultValue: true,
+    },
+]
+
+interface IAuthData {
+    phone: string,
+    password: string
+    remember: boolean
+}
 
 export const LoginForm = () => {
 
     const classes = useStyles()
 
-    const [errorState, setErrorState] = useState(false);
-    const [phoneValue, setPhoneValue] = useState(null)
+    const [data, setData] = useState<IAuthData | null>(null)
 
-    const handleUserInput = (e: any) => {
-        const name = e.target.name;
-        const value = e.target.value;
-        setPhoneValue(value);
-        console.log('phoneValue')
-        console.log(phoneValue)
+    const handleChange = (data: IAuthData, initial: boolean) => {
+        if (!initial) {
+            setData(data)
+        }
+    };
+
+    const handleInvalid = () => {
+        setData(null)
     }
+
+    const handleAuth = () => {
+        if (data) {
+            ioc.authService.auth(data.phone, data.phone, data.remember)
+        }
+    };
 
     return (
         <Paper className={classes.root}>
@@ -105,32 +151,12 @@ export const LoginForm = () => {
                 <Typography className={classes.text}>
                     Вход
                 </Typography>
-                <TextField
-                    id="outlined-basic"
-                    name="phone"
-                    label="Телефон"
-                    variant="outlined"
-                    error={false}
-
-                    value={phoneValue}
-                    onChange={handleUserInput}
+                <One
+                    fields={fields}
+                    onChange={handleChange}
+                    onInvalid={handleInvalid}
                 />
-                <TextField
-                    id="outlined-basic"
-                    label="Пароль"
-                    variant="outlined"
-                />
-                <FormControlLabel
-                    control={<CheckBox
-                        className={classes.checkBox}
-                        // checked={checked}
-                        // onChange={handleChange}
-                        inputProps={{ 'aria-label': 'controlled' }}
-                    />
-                    }
-                    label="Запомнить меня"
-                />
-                <Button className={classes.loginButton}>
+                <Button disabled={!data} className={classes.loginButton} onClick={handleAuth}>
                     Войти
                 </Button>
             </Box>

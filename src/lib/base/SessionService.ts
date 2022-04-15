@@ -12,13 +12,7 @@ interface ISessionInfo {
 
 export class SessionService {
 
-  readonly sessionInfo: ISessionInfo = {
-    sessionId: storageManager.getValue(),
-  };
-
-  get sessionId() {
-    return this.sessionInfo.sessionId;
-  };
+  sessionId = storageManager.getValue()
 
   constructor() {
     makeAutoObservable(this);
@@ -26,14 +20,14 @@ export class SessionService {
 
   dispose = () => {
     storageManager.setValue('');
-    this.sessionInfo.sessionId = '';
+    this.sessionId = '';
   };
 
   setSessionId = (sessionId: string, keep = true) => {
     if (keep) {
       storageManager.setValue(sessionId);
     }
-    this.sessionInfo.sessionId = sessionId;
+    this.sessionId = sessionId;
   };
 
 };

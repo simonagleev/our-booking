@@ -16,9 +16,6 @@ export const LogInBot = () => {
 
     const classes = useStyles()
 
-    const test = () => {
-        ioc.personSerice.authUser()    
-    }
     const open = () => {
         ioc.modalService.setRegisterModal(false)
         ioc.modalService.setLoginModal(true)
