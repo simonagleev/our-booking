@@ -17,21 +17,14 @@ const useStyles = makeStyles({
         overflow: 'hidden',
     },
     container: {
-        
-        '& .MuiPaper-root': {
+        '& > .MuiDialog-container > .MuiPaper-root': {
           borderRadius: '80px',
           border: '2px solid',
           borderColor: colorOrange,
+          padding: '15px',
+          paddingTop: '25px',
+          paddingBottom: '25px',
         },
-        '& .MuiBox-root': {
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-        },
-        '& p': {
-            marginBottom: '20px'
-          },
     },
 });
 
