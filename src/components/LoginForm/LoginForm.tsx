@@ -89,8 +89,12 @@ export const LoginForm = () => {
         }
     };
 
+    const handleClose = () => {
+        ioc.modalService.setLoginModal(false);
+    };
+
     return (
-        <ModalDialog open className={clsx(classes.root, 'fuck')}>
+        <ModalDialog open className={clsx(classes.root, 'fuck')} onClose={handleClose}>
             <Box className={classes.box}>
                 <Typography variant="h2" color="primary" className={classes.text}>
                     Вход
