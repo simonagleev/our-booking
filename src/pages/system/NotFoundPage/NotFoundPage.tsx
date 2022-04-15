@@ -3,6 +3,7 @@ import ModalDialog from "../../../components/common/ModalDialog";
 import { CC_ORIGIN } from "../../../config";
 
 import ioc from "../../../lib/ioc";
+import { colorBackground } from "../../../theme";
 
 export const NotFoundPage = () => {
 
@@ -19,10 +20,10 @@ export const NotFoundPage = () => {
                     minWidth: 225,
                 }}
             >
-                <Typography>
+                <Typography sx={{color: 'red'}}>
                     NOT FOUND
                 </Typography>
-                <Button onClick={handleReload}>
+                <Button onClick={handleReload} sx={{color: colorBackground}}>
                     Reload
                 </Button>
             </Box>

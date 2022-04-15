@@ -1,8 +1,21 @@
 import { Typography } from "@mui/material";
+import { makeStyles } from '@mui/styles';
+
+import { colorBackground } from "../../../theme";
 import ioc from "../../../lib/ioc";
 
+const useStyles = makeStyles({
+    root: {
+      cursor: 'pointer',
+      color: colorBackground,
+      
+    },
+})
 
 export const LogInBot = () => {
+
+    const classes = useStyles()
+
     const test = () => {
         ioc.personSerice.authUser()    
     }
@@ -12,8 +25,8 @@ export const LogInBot = () => {
     }
 
     return (
-        <Typography style={{textAlign: 'center', padding: '10px 0'}}>
-            Есть аккаунт? <a href="###" onClick={open}>Log In</a>
+        <Typography style={{textAlign: 'center', padding: '10px 0'}} >
+            Есть аккаунт? <span onClick={open} className={classes.root}>Log In</span>
         </Typography>
     )
 }
