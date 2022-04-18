@@ -1,23 +1,11 @@
+import { useState } from 'react';
+
+import { makeStyles } from '@mui/styles';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import { makeStyles } from '@mui/styles';
-import { useState } from 'react';
+
 import ioc from '../../../../../lib/ioc';
 
-
-const testOptions = [
-    { label: 'город', id: 0},
-    { label: 'Санкт-Петербург', id: 1},
-    { label: 'Питер',  id: 2},
-    { label: 'Новосибирск',  id: 2},
-    { label: 'Сочи',  id: 2},
-    { label: 'Краснодар',  id: 2},
-    { label: 'Иркутск',  id: 2},
-    { label: 'Крым',  id: 2},
-    { label: 'Чита',  id: 2},
-    { label: 'Свердловск',  id: 2},
-
-]
 
 const useStyles = makeStyles({
     root: {
@@ -105,9 +93,4 @@ export const CityInput = () => {
   
 export default CityInput;
 
-
-
-
-
-// .css-154xyx0-MuiInputBase-root-MuiOutlinedInput-root    тут цвет текста определяется у инпута
 

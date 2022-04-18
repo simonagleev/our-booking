@@ -227,33 +227,6 @@ export const OneProfilePage = () => {
       console.log("NOTHING CHANGED")
     }
   };
-
-
-  // Нже идут тестовые штуки по взаимодействию с сервером
-
-
-  const [testUsers, setTestusers] = useState([])
-
-  const testGet = () => {
-    fetch('http://localhost:3000/users')
-      .then(res => res.json())
-      .then(data => {
-        setTestusers(data)
-        console.log(data)
-      })
-    console.log('test users')
-    setTimeout(() => {console.log(testUsers) }, 3000)
-  }
-
-  // const [testFetch, setTestFetch] = useState(null)
-
-  // const fetchData = () => {                                         
-  //   fetch('http://localhost:3000/users')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setTestFetch(data)
-  //     })
-  // }
   
   return (
     <Paper style={{
