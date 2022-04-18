@@ -37,8 +37,11 @@ export class AuthService {
     auth = async(phone: string, password: string, remember: boolean) => {
         const data = await this.apiService.get<IUser[]>('http://localhost:3000/users');
         const targetUser = data.find((user) => user.phone === phone && user.password === password);
+        
         if (targetUser) {
             this.sessionService.setSessionId(targetUser.id, remember);
+        } else { 
+            console.log('no target user')
         }
     }
 }

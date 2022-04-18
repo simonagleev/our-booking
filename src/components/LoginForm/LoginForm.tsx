@@ -37,7 +37,7 @@ const fields: TypedField<IAuthData>[] = [
         name: 'phone',
         title: 'Телефон',
         description: 'Required',
-        inputFormatterTemplate: '+0 (000) 000-00-00',
+        inputFormatterTemplate: '+0 000 000 00 00',
         inputFormatterAllowed: /[0-9]/,
     },
     {
@@ -85,7 +85,7 @@ export const LoginForm = () => {
 
     const handleAuth = () => {
         if (data) {
-            ioc.authService.auth(data.phone, data.phone, data.remember)
+            ioc.authService.auth(data.phone, data.password, data.remember)
         }
     };
 
