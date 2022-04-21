@@ -5,6 +5,7 @@ import HotelNameCard from "./components/HotelNameCard";
 import MealsCard from "./components/MealsCard";
 import RatingCard from "./components/RatingCard";
 import SortingCard from "./components/SortingCard";
+import TopBar from "./components/TopBarCard";
 
 export const HotelsListPage = () => {
 
@@ -70,7 +71,7 @@ export const HotelsListPage = () => {
                     type: FieldType.Component,
                     columns: '12',
                     element: () => (
-                        <CityCard />
+                        <TopBar />
                     )
                 },
             ]
