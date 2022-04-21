@@ -14,6 +14,7 @@ const usetyles = makeStyles({
         borderRadius: '10px',
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'center',
         marginBottom: '10px',
         marginRight: '10px',
     },

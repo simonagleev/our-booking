@@ -17,6 +17,16 @@ const usetyles = makeStyles({
             color: colorOrange,
         },
     },
+    checkBox: {
+        borderRadius: '7px',
+        color: '#000',
+        fontSize: '0.87em',
+        lineHeight: '1em',
+        '& svg': {
+            color: '#6DB5CA',
+            borderRadius: '7px',
+        }
+    },
     test: {
         '& div': {
             height: '30px',
@@ -55,13 +65,13 @@ export const RatingCard = () => {
     const [value, setValue] = useState<number | null>(2);
 
     return (
-        <CommonCard title="Город. страна">
+        <CommonCard title="Количество звезд">
             {stars.map(i => (
-                <Box>
+                <Box sx={{maxHeight: '30px'}}>
                     <FormControlLabel
                         className={styles.test}
                         control={
-                            <Checkbox name="antoine" />
+                            <Checkbox className={styles.checkBox} name="ratingCheckBox" />
                         }
                         label={<Rating
                             className={styles.rating}

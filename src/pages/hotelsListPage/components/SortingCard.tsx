@@ -1,12 +1,22 @@
-import { makeStyles } from '@mui/styles';
 import * as React from 'react';
-import Box from '@mui/material/Box';
+
+import { makeStyles } from '@mui/styles';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
+import SelectUnstyled, {
+  SelectUnstyledProps,
+  selectUnstyledClasses,
+} from '@mui/base/SelectUnstyled';
+import OptionUnstyled, { optionUnstyledClasses } from '@mui/base/OptionUnstyled';
+import PopperUnstyled from '@mui/base/PopperUnstyled';
 
 import CommonCard from "./common/Card";
-import { AutoSizer } from 'react-declarative';
-import { borderRadius } from '@mui/system';
+
+import { styled } from '@mui/system';
+import { useState } from 'react';
+
+
+
 
 const usetyles = makeStyles({
     text: {
@@ -41,6 +51,118 @@ const options = [
 
 ];
 
+const StyledButton = styled('button')(
+    ({ theme }) => `
+    font-family: Montserrat;
+    font-size: 0.875em;
+    box-sizing: border-box;
+    min-height: calc(1.5em + 22px);
+    min-width: 230px;
+    background: #FCF5EF;
+    border: 1px solid #6DB5CA;
+    border-radius: 7px;
+    margin-top: 0.5em;
+    padding: 10px;
+    text-align: left;
+    line-height: 1.5;
+    color: #000;
+  
+    &:hover {
+      background: #FCF5EF;
+      border-color: #6DB5CA;
+      outline: 2px solid #6DB5CA;
+      cursor: pointer;
+    }
+  
+    &.${selectUnstyledClasses.focusVisible} {
+      outline: 3px solid #6DB5CA;
+    }
+  
+    &.${selectUnstyledClasses.expanded} {
+      &::after {
+        content: '▴';
+      }
+    }
+    &:focus {
+        outline: 2px solid #6DB5CA;
+    }
+    &::after {
+      content: '▾';
+      float: right;
+    }
+    `,
+);
+
+const StyledListbox = styled('ul')(
+    ({ theme }) => `
+    font-family: Montserrat;
+    font-size: 0.875em;
+    box-sizing: border-box;
+    padding: 5px;
+    margin: 10px 0;
+    min-width: 230px;
+    background: #FCF5EF;
+    border: 1px solid #6DB5CA;
+    border-radius: 7px;
+    color: black;
+    overflow: auto;
+    outline: 2px solid #6DB5CA;;
+    `,
+);
+
+const StyledOption = styled(OptionUnstyled)(
+    () => `
+    list-style: none;
+    padding: 8px;
+    border-radius: 0.45em;
+    cursor: default;
+  
+    &:last-of-type {
+      border-bottom: none;
+    }
+  
+    &.${optionUnstyledClasses.selected} {
+      background-color: #FCF5EF;
+      color: #6DB5CA;
+    }
+  
+    &.${optionUnstyledClasses.highlighted} {
+      background-color: #FCF5EF;
+      color: #6DB5CA;
+    }
+  
+    &.${optionUnstyledClasses.highlighted}.${optionUnstyledClasses.selected} {
+      background-color: #FCF5EF;
+      color: #6DB5CA;
+    }
+  
+    &.${optionUnstyledClasses.disabled} {
+      color: #6DB5CA;
+    }
+
+    &:hover:not(.${optionUnstyledClasses.disabled}) {
+      background-color: #FCF5EF;
+      color: #6DB5CA;
+      cursor: pointer;
+    }
+    `,
+);
+
+const StyledPopper = styled(PopperUnstyled)`
+  z-index: 1;
+`;
+
+const CustomSelect = (props: SelectUnstyledProps<string>) => {
+    const components: SelectUnstyledProps<string>['components'] = {
+      Root: StyledButton,
+      Listbox: StyledListbox,
+      Popper: StyledPopper,
+      ...props.components,
+    };
+  
+    return <SelectUnstyled {...props} components={components} />;
+}
+
 export const SortingCard = () => {
     const classes = usetyles()
 
@@ -49,9 +171,12 @@ export const SortingCard = () => {
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSortOption(event.target.value);
     };
+
+    const [value, setValue] = useState<any>('По популярности');
+
     return (
-        <CommonCard title="Сортиовка">
-                <TextField className={classes.input}
+        <CommonCard title="Сортировка">
+                {/* <TextField className={classes.input}
                     id="sorting"
                     select
                     label="Select"
@@ -63,14 +188,14 @@ export const SortingCard = () => {
                             {option.label}
                         </MenuItem>
                     ))}
-                </TextField>
-                {/* <div>
-                    <select id="sorting" name="sorting" className={classes.input}>
-                        <option value="mostPopular">По популярности</option>
-                        <option value="priceDown">По уменьшению цены</option>
-                        <option value="priceUp">По возрастанию цены</option>
-                    </select>
-                </div> */}
+                </TextField> */}
+                <div>
+                    <CustomSelect value={value} onChange={setValue}>
+                        <StyledOption value={'mostPopular'}>По популярности</StyledOption>
+                        <StyledOption value={'priceDown'}>По уменьшению цены</StyledOption>
+                        <StyledOption value={'priceUp'}>По возрастанию цены</StyledOption>
+                    </CustomSelect>
+                </div>
                 
         </CommonCard>
     )

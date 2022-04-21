@@ -16,11 +16,11 @@ export const HotelsListPage = () => {
             columns: '3',
             tabletColumns: '12',
             phoneColumns: '12',
-            fieldRightMargin: '10',
+            fieldRightMargin: '1',
             fields: [
                 {
                     type: FieldType.Component,
-                    fieldRightMargin: "10",
+                    fieldRightMargin: "1",
                     fieldBottomMargin: '20px',
                     element: () => (
                         <CityCard />
@@ -28,7 +28,7 @@ export const HotelsListPage = () => {
                 },
                 {
                     type: FieldType.Component,
-                    fieldRightMargin: "10",
+                    fieldRightMargin: "1",
                     columns: '12',
                     element: () => (
                         <SortingCard />
@@ -36,23 +36,23 @@ export const HotelsListPage = () => {
                 },
                 {
                     type: FieldType.Component,
-                    fieldRightMargin: "10",
+                    fieldRightMargin: "1",
                     columns: '12',
                     element: () => (
                         <HotelNameCard />
                     )
                 },
-                // {
-                //     type: FieldType.Component,
-                //     fieldRightMargin: "10",
-                //     columns: '12',
-                //     element: () => (
-                //         <MealsCard />
-                //     )
-                // },
                 {
                     type: FieldType.Component,
                     fieldRightMargin: "10",
+                    columns: '12',
+                    element: () => (
+                        <MealsCard />
+                    )
+                },
+                {
+                    type: FieldType.Component,
+                    fieldRightMargin: "1",
                     columns: '12',
                     element: () => (
                         <RatingCard />

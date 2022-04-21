@@ -1,5 +1,5 @@
-import { ClassNames } from "@emotion/react";
-import { Checkbox, FormControlLabel, Typography } from "@mui/material";
+
+import { Checkbox, FormControlLabel } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 import { Box } from "@mui/system";
 
@@ -9,11 +9,16 @@ const usetyles = makeStyles({
     root: {
         display: 'flex',
         alignItems: 'center',
+        fontSize: '0.87em',
+        '& span': {
+            fontSize: '0.87em',
+            
+        }
     },
     checkBox: {
         borderRadius: '7px',
         color: '#000',
-        fontSize: '0.87em',
+        
         lineHeight: '1em',
         '& svg': {
             color: '#6DB5CA',
